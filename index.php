@@ -136,19 +136,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</li>
 				<li>
 					<div class="trend-grid">
-						<h4><?php print $content['top_sellers']['items'][3]['name'] ?>&nbsp&nbsp&nbsp&nbsp&nbsp</h4>
+						<h4><?php print $content['top_sellers']['items'][3]['name'] ?></h4>
 						<img src=<?php print $content['top_sellers']['items'][3]['large_capsule_image'] ?> alt=" " class="img-responsive" />
 					</div>
 				</li>
 				<li>
 					<div class="trend-grid">
-						<h4><?php print $content['top_sellers']['items'][4]['name'] ?>&nbsp&nbsp&nbsp&nbsp&nbsp</h4>
+						<h4><?php print $content['top_sellers']['items'][4]['name'] ?></h4>
 						<img src=<?php print $content['top_sellers']['items'][4]['large_capsule_image'] ?> alt=" " class="img-responsive" />
 					</div>
 				</li>
 				<li>
 					<div class="trend-grid">
-						<h4><?php print $content['top_sellers']['items'][5]['name'] ?>&nbsp&nbsp&nbsp&nbsp&nbsp</h4>
+						<h4><?php print $content['top_sellers']['items'][5]['name'] ?></h4>
 						<img src=<?php print $content['top_sellers']['items'][5]['large_capsule_image'] ?> alt=" " class="img-responsive" />
 					</div>
 				</li>
