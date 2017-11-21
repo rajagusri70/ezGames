@@ -60,6 +60,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- banner -->
 
 <!-- gallery -->
+
+<!-- Script for list product-->
+		    <script type="text/javascript">
+		    	$(document).ready(function() {
+	    			$('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+	    			$('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+				});
+		    </script>
+
+		    <?php 
+			$url = 'http://store.steampowered.com/api/featuredcategories/&cc=ID';
+			$data = file_get_contents($url);
+			$content = json_decode($data, true);
+			?>
+
 <div class="gallery-w3layouts" id="gallery">
 	<div class="container">
 		<h2>Top Seller Games</h2>
@@ -73,19 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </div>
 		    </div>
 
-		    <!-- Script for list product-->
-		    <script type="text/javascript">
-		    	$(document).ready(function() {
-	    			$('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
-	    			$('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
-				});
-		    </script>
-
-		    <?php 
-			$url = 'http://store.steampowered.com/api/featuredcategories/&cc=ID';
-			$data = file_get_contents($url);
-			$content = json_decode($data, true);
-			?>
+		    
 		    <div id="products" class="row list-group">
 		        <div class="item  col-xs-4 col-lg-4">
 		            <div class="thumbnail">
@@ -289,7 +292,203 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </div>
 		    </div>
 		</div>
-		<h2>Coming Soon Games</h2>
+		</br></br></br>
+		<h2>Coming Soon Games and DLC's</h2>
+		<div class="container">
+		    <div class="well well-sm">
+		        <strong>Display</strong>
+		        <div class="btn-group">
+		            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+		            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+		                class="glyphicon glyphicon-th"></span>Grid</a>
+		        </div>
+		    </div>
+
+		    
+		    <div id="products" class="row list-group">
+		        <div class="item  col-xs-4 col-lg-4">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src=<?php print $content['coming_soon']['items'][0]['header_image'] ?> alt="" />
+		                <div class="caption">
+		                    <h4 style="font-size: 1vw" class="group inner list-group-item-heading">
+		                        <?php print $content['coming_soon']['items'][0]['name'] ?></h4>
+		                    <p class="group inner list-group-item-text">
+		                        </p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                               Rp. <?php echo substr ($content['coming_soon']['items'][0]['final_price'],0,-2); ?></p>
+		                        </div>
+		                        <div class="col-xs-12 col-md-6">
+		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="item  col-xs-4 col-lg-4">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src=<?php print $content['coming_soon']['items'][1]['header_image'] ?> alt="" />
+		                <div class="caption">
+		                    <h4 class="group inner list-group-item-heading">
+		                        <?php print $content['coming_soon']['items'][1]['name'] ?></h4>
+		                    <p class="group inner list-group-item-text">
+		                        </p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                               Rp. <?php echo substr ($content['coming_soon']['items'][1]['final_price'],0,-2); ?></p>
+		                        </div>
+		                        <div class="col-xs-12 col-md-6">
+		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="item  col-xs-4 col-lg-4">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src=<?php print $content['coming_soon']['items'][2]['header_image'] ?> alt="" />
+		                <div class="caption">
+		                    <h4 class="group inner list-group-item-heading">
+		                        <?php print $content['coming_soon']['items'][2]['name'] ?></h4>
+		                    <p class="group inner list-group-item-text">
+		                        </p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                               Rp. <?php echo substr ($content['coming_soon']['items'][2]['final_price'],0,-2); ?></p>
+		                        </div>
+		                        <div class="col-xs-12 col-md-6">
+		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		  		<div class="item  col-xs-4 col-lg-4">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src=<?php print $content['coming_soon']['items'][3]['header_image'] ?> alt="" />
+		                <div class="caption">
+		                    <h4 class="group inner list-group-item-heading">
+		                        <?php print $content['coming_soon']['items'][3]['name'] ?></h4>
+		                    <p class="group inner list-group-item-text">
+		                        </p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                               Rp. <?php echo substr ($content['coming_soon']['items'][3]['final_price'],0,-2); ?></p>
+		                        </div>
+		                        <div class="col-xs-12 col-md-6">
+		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="item  col-xs-4 col-lg-4">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src=<?php print $content['coming_soon']['items'][4]['header_image'] ?> alt="" />
+		                <div class="caption">
+		                    <h4 class="group inner list-group-item-heading">
+		                        <?php print $content['coming_soon']['items'][4]['name'] ?></h4>
+		                    <p class="group inner list-group-item-text">
+		                        </p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                               Rp. <?php echo substr ($content['coming_soon']['items'][4]['final_price'],0,-2); ?></p>
+		                        </div>
+		                        <div class="col-xs-12 col-md-6">
+		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="item  col-xs-4 col-lg-4">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src=<?php print $content['coming_soon']['items'][5]['header_image'] ?> alt="" />
+		                <div class="caption">
+		                    <h4 class="group inner list-group-item-heading">
+		                        <?php print $content['coming_soon']['items'][5]['name'] ?></h4>
+		                    <p class="group inner list-group-item-text">
+		                        </p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                               Rp. <?php echo substr ($content['coming_soon']['items'][5]['final_price'],0,-2); ?></p>
+		                        </div>
+		                        <div class="col-xs-12 col-md-6">
+		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="item  col-xs-4 col-lg-4">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src=<?php print $content['coming_soon']['items'][6]['header_image'] ?> alt="" />
+		                <div class="caption">
+		                    <h4 class="group inner list-group-item-heading">
+		                        <?php print $content['coming_soon']['items'][6]['name'] ?></h4>
+		                    <p class="group inner list-group-item-text">
+		                        </p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                               Rp. <?php echo substr ($content['coming_soon']['items'][6]['final_price'],0,-2); ?></p>
+		                        </div>
+		                        <div class="col-xs-12 col-md-6">
+		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="item  col-xs-4 col-lg-4">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src=<?php print $content['coming_soon']['items'][7]['header_image'] ?> alt="" />
+		                <div class="caption">
+		                    <h4 class="group inner list-group-item-heading">
+		                        <?php print $content['coming_soon']['items'][7]['name'] ?></h4>
+		                    <p class="group inner list-group-item-text">
+		                        </p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                               Rp. <?php echo substr ($content['coming_soon']['items'][7]['final_price'],0,-2); ?></p>
+		                        </div>
+		                        <div class="col-xs-12 col-md-6">
+		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="item  col-xs-4 col-lg-4">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src=<?php print $content['coming_soon']['items'][8]['header_image'] ?> alt="" />
+		                <div class="caption">
+		                    <h4 class="group inner list-group-item-heading">
+		                        <?php print $content['coming_soon']['items'][8]['name'] ?></h4>
+		                    <p class="group inner list-group-item-text">
+		                        </p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                               Rp. <?php echo substr ($content['coming_soon']['items'][8]['final_price'],0,-2); ?></p>
+		                        </div>
+		                        <div class="col-xs-12 col-md-6">
+		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
 			<!-- <div class="gallery-grids">
 				<div class="gallery-grid">
 					<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog">
