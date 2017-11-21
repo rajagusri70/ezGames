@@ -17,6 +17,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/popup-box.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/grid-view.css" rel="stylesheet" type="text/css" media="all" />
 <!--// css -->
 <!-- font -->
 <link href='//fonts.googleapis.com/css?family=Josefin+Sans:400,100,100italic,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -24,6 +25,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //font -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
+
+<?php 
+	// $url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][5]['id'];
+	// $datas = file_get_contents($url);
+ // 	$contents = json_decode($datas, true);
+?>
 </head>
 <body>
 <!-- banner -->
@@ -58,9 +65,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- banner -->
 
 <!-- gallery -->
+<style>
+
+
+th, td {
+    margin: 1%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+table{
+    
+}
+
+</style>
 	<div class="gallery-w3layouts" id="gallery">
 		<div class="container">
 			<h2>Exclusive Games</h2>
+			<div class="gallery-grids">
+				
+			</div>
 			<!-- <div class="gallery-grids">
 				<div class="gallery-grid">
 					<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog">
