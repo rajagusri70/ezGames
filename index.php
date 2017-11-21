@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<ul id="flexiselDemo1">
 				<li>
 					<div class="trend-grid">
-						<a "><h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
+						<h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
 						<img src=<?php print $content['top_sellers']['items'][0]['large_capsule_image'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 				</li>
