@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EasyGames Shop SI3803 | News</title>
+<title>Games Zone A Games Category Flat Bootstrap responsive Website Template | News :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -104,20 +104,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 	<div class="blog1-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src=<?php print $content['articles'][0]['urlToImage'] ?> alt=" " /></a>
+			<a href="single.html"><img src=<?php print $content['articles'][7]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
-			<a href=<?php print $content['articles'][0]['url'] ?>><h4><?php print $content['articles'][0]['title'] ?></h4></a>
+			<a href=<?php print $content['articles'][0]['url'] ?>><h4><?php print $content['articles'][7]['title'] ?></h4></a>
 			<div class="item_info">
 					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][0]['author'] ?></a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][0]['publishedAt'] ?></li>
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][7]['author'] ?></a></li>
+						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][7]['publishedAt'] ?></li>
 						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
 					</ul>
 			 </div>
-			 <p><?php print $content['articles'][0]['description'] ?></p>
-			 <a href="<?php print $content['articles'][0]['url'] ?>" class="blog-read" >Read More</a>
+			 <p><?php print $content['articles'][7]['description'] ?></p>
+			 <a href="<?php print $content['articles'][7]['url'] ?>" class="blog-read" >Read More</a>
 		</div>
 		<div class="clearfix"></div>
 	</div>
@@ -142,20 +142,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="blog3-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src=<?php print $content['articles'][2]['urlToImage'] ?> alt=" " /></a>
+			<a href="single.html"><img src=<?php print $content['articles'][5]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
-			<a href=<?php print $content['articles'][2]['url'] ?>><h4><?php print $content['articles'][2]['title'] ?></h4></a>
+			<a href=<?php print $content['articles'][2]['url'] ?>><h4><?php print $content['articles'][5]['title'] ?></h4></a>
 			<div class="item_info">
 					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][2]['author'] ?></a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][2]['publishedAt'] ?></li>
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][5]['author'] ?></a></li>
+						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][5]['publishedAt'] ?></li>
 						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
 					</ul>
 			 </div>
-			 <p><?php print $content['articles'][2]['description'] ?></p>
-			 <a href=<?php print $content['articles'][2]['url'] ?> class="blog-read" >Read More</a>
+			 <p><?php print $content['articles'][5]['description'] ?></p>
+			 <a href=<?php print $content['articles'][5]['url'] ?> class="blog-read" >Read More</a>
 		</div>
 		<div class="clearfix"></div>
 		<div class="blog2-w3ls">
@@ -251,7 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="col-md-4 footer-right-w3">
 			<a  href="index.php"><img src="images/logowarna1.png" style="width:170px;height:60px"/> </a>
-			<p>EasyGames Shop adalah salah satu layanan jual-beli content digital. EasyGames Shop menyediakan semua kebutuhan akses content digital anda</p>
+			<p>EasyGames Shop adalah salah satu layanan jual-beli content digital. EasyGame hop menyediakan semua kebutuhan akses content digital anda</p>
 		</div>
 		<div class="clearfix"></div>
 		<div class="copyright">
