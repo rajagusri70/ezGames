@@ -72,21 +72,7 @@ if(isset($accessToken)){
 
     // Render facebook profile data
     if(!empty($userData)){
-      // <div class="span span1">
-      //   <p class="left">DEVELOPER</p>
-      //   <p class="right">: Martina</p>
-      //   <div class="clearfix"></div>
-      // </div>
-      // <div class="span span2">
-      //   <p class="left">DEVELOPER</p>
-      //   <p class="right">: Martina</p>
-      //   <div class="clearfix"></div>
-      // </div>
-      // <div class="span span3">
-      //   <p class="left">REQUIRES</p>
-      //   <p class="right">: 2GB Hard Disk Space</p>
-      //   <div class="clearfix"></div>
-      // </div>
+
         $output = '<p>Profile User</p>';
         $output  .= '<div class="span span1">';
         $output  .= '<p class="left">NAME</p>';
@@ -239,7 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<ul id="flexiselDemo1">
 				<li>
 					<div class="trend-grid">
-						<h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
+						<a "><h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
 						<img src=<?php print $content['top_sellers']['items'][0]['large_capsule_image'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 				</li>
