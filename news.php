@@ -22,7 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!-- //font -->
 <script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.js"></script>\
+<script src="js/bootstrap.js"></script>
 <?php
 
     $url = 'https://newsapi.org/v2/top-headlines?sources=ign&apiKey=997cb584096947b88a99ef3c399fbd20';
@@ -45,16 +45,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a  href="index.html"><h1>Games <img src="images/c1.png" alt=" " /> Zone</h1></a>
+					<a  href="index.php"><img src="images/logo.png" style="width:170px;height:60px"/> </a>
 				</div>
 
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="hover-effect"><a href="index.php">Home</a></li>
 						<li class="hover-effect"><a href="about.html">About</a></li>
-						<li class="hover-effect"><a href="games.html">Games</a></li>
+						<li class="hover-effect"><a href="games.php">Games</a></li>
 						<li class="hover-effect active"><a href="news.php">News</a></li>
-						<li class="hover-effect"><a href="contact.html">Contact</a></li>
+						
 					</ul>
 				</div>
 
@@ -104,20 +104,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 	<div class="blog1-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src=<?php print $content['articles'][0]['urlToImage'] ?> alt=" " /></a>
+			<a href="single.html"><img src=<?php print $content['articles'][7]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
-			<a href=<?php print $content['articles'][0]['url'] ?>><h4><?php print $content['articles'][0]['title'] ?></h4></a>
+			<a href=<?php print $content['articles'][0]['url'] ?>><h4><?php print $content['articles'][7]['title'] ?></h4></a>
 			<div class="item_info">
 					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][0]['author'] ?></a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][0]['publishedAt'] ?></li>
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][7]['author'] ?></a></li>
+						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][7]['publishedAt'] ?></li>
 						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
 					</ul>
 			 </div>
-			 <p><?php print $content['articles'][0]['description'] ?></p>
-			 <a href="<?php print $content['articles'][0]['url'] ?>" class="blog-read" >Read More</a>
+			 <p><?php print $content['articles'][7]['description'] ?></p>
+			 <a href="<?php print $content['articles'][7]['url'] ?>" class="blog-read" >Read More</a>
 		</div>
 		<div class="clearfix"></div>
 	</div>
@@ -142,20 +142,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="blog3-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src=<?php print $content['articles'][2]['urlToImage'] ?> alt=" " /></a>
+			<a href="single.html"><img src=<?php print $content['articles'][5]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
-			<a href=<?php print $content['articles'][2]['url'] ?>><h4><?php print $content['articles'][2]['title'] ?></h4></a>
+			<a href=<?php print $content['articles'][2]['url'] ?>><h4><?php print $content['articles'][5]['title'] ?></h4></a>
 			<div class="item_info">
 					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][2]['author'] ?></a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][2]['publishedAt'] ?></li>
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][5]['author'] ?></a></li>
+						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][5]['publishedAt'] ?></li>
 						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
 					</ul>
 			 </div>
-			 <p><?php print $content['articles'][2]['description'] ?></p>
-			 <a href=<?php print $content['articles'][2]['url'] ?> class="blog-read" >Read More</a>
+			 <p><?php print $content['articles'][5]['description'] ?></p>
+			 <a href=<?php print $content['articles'][5]['url'] ?> class="blog-read" >Read More</a>
 		</div>
 		<div class="clearfix"></div>
 		<div class="blog2-w3ls">
@@ -250,8 +250,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-4 footer-right-w3">
-			<a href="index.html"><h4>Easy <img src="images/f1.png" alt=" " /> Games</h4></a>
-			<p>EasyGames Shop adalah salah satu layanan jual-beli content digital. Comodo Shop menyediakan semua kebutuhan akses content digital anda</p>
+			<a  href="index.php"><img src="images/logowarna1.png" style="width:170px;height:60px"/> </a>
+			<p>EasyGames Shop adalah salah satu layanan jual-beli content digital. EasyGame hop menyediakan semua kebutuhan akses content digital anda</p>
 		</div>
 		<div class="clearfix"></div>
 		<div class="copyright">

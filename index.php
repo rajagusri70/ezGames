@@ -104,7 +104,7 @@ if(isset($accessToken)){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Games Zone A Games Category Flat Bootstrap responsive Website Template | Index :: w3layouts</title>
+<title>EasyGames Shop SI3803 | Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -163,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav navbar-nav navbar-right">
 						<li class="hover-effect"><a href="index.php">Home</a></li>
 						<li class="hover-effect"><a href="about.html">About</a></li>
-						<li class="hover-effect"><a href="games.html">Games</a></li>
+						<li class="hover-effect"><a href="games.php">Games</a></li>
 						<li class="hover-effect"><a href="news.php">News</a></li>
 						<li class="hover-effect"><a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#login-pop">  <?php print $x; ?></a></li>
 					</ul>
@@ -676,6 +676,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <div class="services-bottom-w3-agileits">
+	<?php
+
+    $url = 'https://newsapi.org/v2/top-headlines?sources=ign&apiKey=997cb584096947b88a99ef3c399fbd20';
+    $data = file_get_contents($url);
+    $content = json_decode($data, true);
+
+	?>
 		<div class="container">
 			<div class="wthree_info">
 				<section class="slider">
@@ -683,23 +690,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="slides">
 							<li>
 								<div class="wthree_info_grid">
-									<h3>Duis aute dolor reprehenderit</h3>
-									<p>Excepteur sint occaecat cupidatat non proident, sunt officia.</p>
-									<a href="single.html" class="learn">Learn More</a>
+									<h3><?php print $content['articles'][0]['title'] ?></h3>
+									<p><?php print $content['articles'][0]['description'] ?></p>
+									<a href=<?php print $content['articles'][0]['url'] ?> class="learn">Learn More</a>
 								</div>
 							</li>
 							<li>
 								<div class="wthree_info_grid">
-									<h3>Aliquip commodo consequat</h3>
-									<p>Curabitur lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-									<a href="single.html" class="learn">Learn More</a>
+									<h3><?php print $content['articles'][1]['title'] ?></h3>
+									<p><?php print $content['articles'][1]['description'] ?></p>
+									<a href=<?php print $content['articles'][1]['url'] ?> class="learn">Learn More</a>
 								</div>
 							</li>
 							<li>
 								<div class="wthree_info_grid">
-									<h3>Quis autem vel eum iure ea</h3>
-									<p>Phasellus ornare consectetur erat, eu vehicula orci finibus at.</p>
-									<a href="single.html" class="learn">Learn More</a>
+									<h3><?php print $content['articles'][2]['title'] ?></h3>
+									<p><?php print $content['articles'][2]['description'] ?></p>
+									<a href=<?php print $content['articles'][2]['url'] ?> class="learn">Learn More</a>
 								</div>
 							</li>
 						</ul>
@@ -730,19 +737,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h4>Contact</h4>
 			<ul>
 				<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></li>
-				<li><a href="mailto:example@mail.com"><h6>ex@mail.com</h6></a></li>
+				<li><a href="mailto:contact@easygames.com"><h6>contact@easygames.com</h6></a></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
-				<li><h6>+18045678834</h6></li>
+				<li><h6>+6282279552</h6></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></li>
-				<li><h6>4th Avenue,London</h6></li>
+				<li><h6>Telkom University,Bandung</h6></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></li>
-				<li><h6>(0033)6544 5453 644</h6></li>
+				<li><h6>(022)6544 5453 644</h6></li>
 			</ul>
 		</div>
 		<div class="col-md-5 footer-middle-w3">
@@ -774,17 +781,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-4 footer-right-w3">
-			<a href="index.html"><h4>Games <img src="images/f1.png" alt=" " /> Zone</h4></a>
-			<p>Donec lobortis diam eu auctor porta. Phasellus in elementum tortor, sit amet imperdiet urna pellentesque non risus porta.</p>
-			<p class="agileinfo">Suspendisse convallis malesuada libero, non rutrum arcu pellentesque lacinia.</p>
+			<a  href="index.php"><img src="images/logowarna1.png" style="width:170px;height:60px"/> </a>
+			<p>EasyGames Shop adalah salah satu layanan jual-beli content digital. EasyGames Shop menyediakan semua kebutuhan akses content digital anda</p>
 		</div>
 		<div class="clearfix"></div>
 		<div class="copyright">
-			<p>&copy; 2017 Games Zone. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank"> W3layouts </a></p>
+			<p>&copy; 2017 Easy Games. All Rights Reserved | Design by EasyGames Team </a></p>
 		</div>
 	</div>
 </div>
-
 <!-- //footer -->
 </body>
 </html>
