@@ -50,7 +50,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="hover-effect"><a href="about.html">About</a></li>
 						<li class="hover-effect active"><a href="games.php">Games</a></li>
 						<li class="hover-effect"><a href="news.php">News</a></li>
-						<li class="hover-effect"><a href="contact.html">Contact</a></li>
 					</ul>
 				</div>
 
