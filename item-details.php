@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Games Zone A Games Category Flat Bootstrap responsive Website Template | Single :: w3layouts</title>
+<title>Item Details</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a  href="index.html"><h1>Games <img src="images/c1.png" alt=" " /> Zone</h1></a>
+					<a  href="index.php"><img src="images/logo.png" style="width:170px;height:60px"/> </a>
 				</div>
 
 				<div id="navbar" class="navbar-collapse collapse">
@@ -66,10 +66,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="agileits_breadcrumbs">
 		<div class="container">
 			<div class="agileits_breadcrumbs_left">
-				<ul>
-					<li><a href="index.html">Home</a><i>|</i></li>
-					<li>Single</li>
-				</ul>
 			</div>
 			<div class="agileits_breadcrumbs_right">
 				<h3>Game Details and Buy</h3>
@@ -149,19 +145,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h4>Contact</h4>
 			<ul>
 				<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></li>
-				<li><a href="mailto:example@mail.com"><h6>ex@mail.com</h6></a></li>
+				<li><a href="mailto:contact@easygames.com"><h6>contact@easygames.com</h6></a></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
-				<li><h6>+18045678834</h6></li>
+				<li><h6>+6282279552</h6></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></li>
-				<li><h6>4th Avenue,London</h6></li>
+				<li><h6>Telkom University, Bandung</h6></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></li>
-				<li><h6>(0033)6544 5453 644</h6></li>
+				<li><h6>(022)6544 5453 644</h6></li>
 			</ul>
 		</div>
 		<div class="col-md-5 footer-middle-w3">
@@ -193,17 +189,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-4 footer-right-w3">
-			<a href="index.html"><h4>Games <img src="images/f1.png" alt=" " /> Zone</h4></a>
-			<p>Donec lobortis diam eu auctor porta. Phasellus in elementum tortor, sit amet imperdiet urna pellentesque non risus porta.</p>
-			<p class="agileinfo">Suspendisse convallis malesuada libero, non rutrum arcu pellentesque lacinia.</p>
+			<a  href="index.php"><img src="images/logowarna1.png" style="width:170px;height:60px"/> </a>
+			<p>EasyGames Shop adalah salah satu layanan jual-beli content digital. EasyGame hop menyediakan semua kebutuhan akses content digital anda</p>
 		</div>
 		<div class="clearfix"></div>
 		<div class="copyright">
-			<p>&copy; 2017 Games Zone. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank"> W3layouts </a></p>
+			<p>&copy; 2017 Easy Games. All Rights Reserved | Design by EasyGames Team </a></p>
 		</div>
 	</div>
 </div>
-
 <!-- //footer -->
 </body>
 </html>
