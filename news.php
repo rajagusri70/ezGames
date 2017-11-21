@@ -22,7 +22,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!-- //font -->
 <script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.js"></script>\
+<?php
+
+    $url = 'https://newsapi.org/v2/top-headlines?sources=ign&apiKey=997cb584096947b88a99ef3c399fbd20';
+    $data = file_get_contents($url);
+    $content = json_decode($data, true);
+
+?>
 </head>
 <body>
 <!-- banner -->
@@ -57,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- banner -->
 <div class="events-w3layouts">
 	<h2>News</h2>
-	<a href="single.html"><div class="col-md-7 events-left-agile-agileits-w3layouts">
+	<!-- <a href="single.html"><div class="col-md-7 events-left-agile-agileits-w3layouts">
 		<div class="events-text-w3-agile events-text1">
 			<h4>June 20, 2017</h4>
 			<p>Phasellus faucibus semper eros, quis mauris </p>
@@ -89,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div></a>
 		<div class="clearfix"></div>
-	</div>
+	</div> -->
 	<div class="clearfix"></div>
 </div>
 
@@ -97,63 +104,100 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 	<div class="blog1-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src="images/ng1.jpg" alt=" " /></a>
+			<a href="single.html"><img src=<?php print $content['articles'][0]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
-			<a href="single.html"><h4>Quisque in lectus erat</h4></a>
+			<a href=<?php print $content['articles'][0]['url'] ?>><h4><?php print $content['articles'][0]['title'] ?></h4></a>
 			<div class="item_info">
 					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i>Admin</a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i>14.May.2017</li>
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][0]['author'] ?></a></li>
+						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][0]['publishedAt'] ?></li>
 						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
 					</ul>
 			 </div>
-			 <p>Aliquam suscipit neque massa, eu maximus felis gravida vel. Vestibulum lacinia risus risus, ut iaculis felis fermentum id. Cras at vulputate velit, vitae vestibulum augue. Etiam lorem nunc, mattis ac dignissim sit amet, varius et ex. Phasellus eleifend nibh justo, pulvinar cursus sapien commodo non.</p>
-			 <a href="single.html" class="blog-read" >Read More</a>
+			 <p><?php print $content['articles'][0]['description'] ?></p>
+			 <a href="<?php print $content['articles'][0]['url'] ?>" class="blog-read" >Read More</a>
 		</div>
 		<div class="clearfix"></div>
 	</div>
 	<div class="blog2-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src="images/ng2.jpg" alt=" " /></a>
+			<a href="single.html"><img src=<?php print $content['articles'][1]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
-			<a href="single.html"><h4>In finibus vel metus</h4></a>
+			<a href=<?php print $content['articles'][1]['url'] ?>><h4><?php print $content['articles'][1]['title'] ?></h4></a>
 			<div class="item_info">
 					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i>Admin</a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i>17.Aug.2017</li>
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][1]['author'] ?></a></li>
+						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][1]['publishedAt'] ?>
 						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
 					</ul>
 			 </div>
-			 <p>Aliquam suscipit neque massa, eu maximus felis gravida vel. Vestibulum lacinia risus risus, ut iaculis felis fermentum id. Cras at vulputate velit, vitae vestibulum augue. Etiam lorem nunc, mattis ac dignissim sit amet, varius et ex. Phasellus eleifend nibh justo, pulvinar cursus sapien commodo non.</p>
-			 <a href="single.html" class="blog-read" >Read More</a>
+			 <p><?php print $content['articles'][1]['description'] ?></p>
+			 <a href="<?php print $content['articles'][1]['url'] ?>" class="blog-read" >Read More</a>
 		</div>
 		<div class="clearfix"></div>
 	</div>
 	<div class="blog3-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src="images/ng3.jpg" alt=" " /></a>
+			<a href="single.html"><img src=<?php print $content['articles'][2]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
-			<a href="single.html"><h4>Nam eget ligula eu</h4></a>
+			<a href=<?php print $content['articles'][2]['url'] ?>><h4><?php print $content['articles'][2]['title'] ?></h4></a>
 			<div class="item_info">
 					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i>Admin</a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i>24.Aug.2015</li>
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][2]['author'] ?></a></li>
+						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][2]['publishedAt'] ?></li>
 						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
 					</ul>
 			 </div>
-			 <p>Aliquam suscipit neque massa, eu maximus felis gravida vel. Vestibulum lacinia risus risus, ut iaculis felis fermentum id. Cras at vulputate velit, vitae vestibulum augue. Etiam lorem nunc, mattis ac dignissim sit amet, varius et ex. Phasellus eleifend nibh justo, pulvinar cursus sapien commodo non.</p>
-			 <a href="single.html" class="blog-read" >Read More</a>
+			 <p><?php print $content['articles'][2]['description'] ?></p>
+			 <a href=<?php print $content['articles'][2]['url'] ?> class="blog-read" >Read More</a>
+		</div>
+		<div class="clearfix"></div>
+		<div class="blog2-w3ls">
+		<div class="col-md-4 blog-image-w3l">
+			<a href="single.html"><img src=<?php print $content['articles'][3]['urlToImage'] ?> alt=" " /></a>
+		</div>
+		<div class="col-md-8 blog-text-w3ls">
+			<a href=<?php print $content['articles'][3]['url'] ?>><h4><?php print $content['articles'][3]['title'] ?></h4></a>
+			<div class="item_info">
+					<ul>
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][3]['author'] ?></a></li>
+						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][3]['publishedAt'] ?></li>
+						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
+						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
+					</ul>
+			 </div>
+			 <p><?php print $content['articles'][3]['description'] ?></p>
+			 <a href="<?php print $content['articles'][3]['url'] ?>" class="blog-read" >Read More</a>
+		</div>
+		<div class="clearfix"></div>
+		<div class="blog2-w3ls">
+		<div class="col-md-4 blog-image-w3l">
+			<a href="single.html"><img src=<?php print $content['articles'][4]['urlToImage'] ?> alt=" " /></a>
+		</div>
+		<div class="col-md-8 blog-text-w3ls">
+			<a href=<?php print $content['articles'][4]['url'] ?>><h4><?php print $content['articles'][4]['title'] ?></h4></a>
+			<div class="item_info">
+					<ul>
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][4]['author'] ?></a></li>
+						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][4]['publishedAt'] ?></li>
+						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
+						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
+					</ul>
+			 </div>
+			 <p><?php print $content['articles'][4]['description'] ?></p>
+			 <a href="<?php print $content['articles'][4]['url'] ?>" class="blog-read" >Read More</a>
 		</div>
 		<div class="clearfix"></div>
 	</div>
 </div>
 </div>
+
 
 <!-- footer -->
 <div class="footer">
@@ -162,19 +206,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h4>Contact</h4>
 			<ul>
 				<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></li>
-				<li><a href="mailto:example@mail.com"><h6>ex@mail.com</h6></a></li>
+				<li><a href="mailto:contact@easygames.com"><h6>contact@easygames.com</h6></a></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
-				<li><h6>+18045678834</h6></li>
+				<li><h6>+6282279552</h6></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></li>
-				<li><h6>4th Avenue,London</h6></li>
+				<li><h6>Telkom University, Bandung</h6></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></li>
-				<li><h6>(0033)6544 5453 644</h6></li>
+				<li><h6>(022)6544 5453 644</h6></li>
 			</ul>
 		</div>
 		<div class="col-md-5 footer-middle-w3">
@@ -207,12 +251,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="col-md-4 footer-right-w3">
 			<a href="index.html"><h4>Games <img src="images/f1.png" alt=" " /> Zone</h4></a>
-			<p>Donec lobortis diam eu auctor porta. Phasellus in elementum tortor, sit amet imperdiet urna pellentesque non risus porta.</p>
-			<p class="agileinfo">Suspendisse convallis malesuada libero, non rutrum arcu pellentesque lacinia.</p>
+			<p>EasyGames Shop adalah salah satu layanan jual-beli content digital. Comodo Shop menyediakan semua kebutuhan akses content digital anda</p>
 		</div>
 		<div class="clearfix"></div>
 		<div class="copyright">
-			<p>&copy; 2017 Games Zone. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank"> W3layouts </a></p>
+			<p>&copy; 2017 Easy Games. All Rights Reserved | Design by EasyGames Team </a></p>
 		</div>
 	</div>
 </div>
