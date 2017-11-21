@@ -17,6 +17,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="css/popup-box.css" rel="stylesheet" type="text/css" media="all" />
 <!--// css -->
 <!-- font -->
 <link href='//fonts.googleapis.com/css?family=Josefin+Sans:400,100,100italic,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -118,8 +119,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<ul id="flexiselDemo1">			
 				<li>
 					<div class="trend-grid">
-						<h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
-						<img src=<?php print $content['top_sellers']['items'][0]['large_capsule_image'] ?> alt=" " class="img-responsive" />
+						<a "><h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
+						<img src=<?php print $content['top_sellers']['items'][0]['large_capsule_image'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 				</li>
 				<li>
@@ -153,6 +154,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</li>
 			</ul>
+		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/modernizr.custom.53451.js"></script> 
+		<script>
+								$(document).ready(function() {
+								$('.popup-with-zoom-anim').magnificPopup({
+									type: 'inline',
+									fixedContentPos: false,
+									fixedBgPos: true,
+									overflowY: 'auto',
+									closeBtnInside: true,
+									preloader: false,
+									midClick: true,
+									removalDelay: 300,
+									mainClass: 'my-mfp-zoom-in'
+								});
+																								
+								});
+		</script>
+		
 						<script type="text/javascript">
 							$(window).load(function() {
 								$("#flexiselDemo1").flexisel({
@@ -226,7 +246,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-3 new-grid-w3l view view-eighth">
 			<img src="images/ng1.jpg" alt=" " />
 			<div class="mask">
-				<a href="single.html"><h4>Click here</h4></a>
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog"><h4>Click here</h4></a>
 				<p>To learn more about this</p>
 			</div>
 		</div>
@@ -282,6 +302,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="clearfix"></div>
 	</div>
 </div>
+
+<!-- pop up new games -->
+		<div class="pop-up"> 
+			<div id="small-dialog" class="mfp-hide book-form">
+				<div class="pop-up-content-agileits-w3layouts">
+					<div class="col-md-6 w3ls-left">
+						<img src="images/g1.jpg" alt=" " class="img-responsive zoom-img" />
+					</div>
+					<div class="col-md-6 w3ls-right">
+						<h4>Game-1</h4>
+						<p>Duis sodales nibh vitae augue feugiat efficitur. Sed vel urna sollicitudin, interdum massa nec, sagittis massa. </p>
+						<p class="agileits">Etiam porttitor neque enim, sit amet mollis est sollicitudin sed.</p>
+						<div class="span span1">
+							<p class="left">NAME</p>
+							<p class="right">: Sed Perst</p>
+							<div class="clearfix"></div>
+						</div>
+						<div class="span span2">
+							<p class="left">DEVELOPER</p>
+							<p class="right">: Martina</p>
+							<div class="clearfix"></div>
+						</div>
+						<div class="span span3">
+							<p class="left">REQUIRES</p>
+							<p class="right">: 2GB Hard Disk Space</p>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
 <!-- //new games-->
 
 
