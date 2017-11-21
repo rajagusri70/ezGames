@@ -95,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">5</a><i>|</i></li>
 						<li><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Voluptatibus</li>
 					</ul>
-					<p><?php print $content[$steamAppID]['data']['detailed_description'] ?>
+					<p style="line-height: 20px"><?php print $content[$steamAppID]['data']['detailed_description'] ?>
 					</p>
 				</div>
 			</br></br>
