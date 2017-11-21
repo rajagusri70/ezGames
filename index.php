@@ -66,10 +66,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="hover-effect"><a href="index.html">Home</a></li>
+						<li class="hover-effect"><a href="index.php">Home</a></li>
 						<li class="hover-effect"><a href="about.html">About</a></li>
 						<li class="hover-effect"><a href="games.html">Games</a></li>
-						<li class="hover-effect"><a href="news.html">News</a></li>
+						<li class="hover-effect"><a href="news.php">News</a></li>
 						<li class="hover-effect"><a href="contact.html">Contact</a></li>
 						<li class="hover-effect"><a href="news.html"><img src="images/avatar-1-1.png" id="avatar" alt="avatar" style=" " />Raja Gusri</a></li>
 					</ul>
@@ -314,16 +314,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-6 w3ls-right">
 						<h4><?php print $content['new_releases']['items'][0]['name'] ?></h4>
-						<p>Duis sodales nibh vitae augue feugiat efficitur. Sed vel urna sollicitudin, interdum massa nec, sagittis massa. </p>
-						<p class="agileits">Etiam porttitor neque enim, sit amet mollis est sollicitudin sed.</p>
+						<?php 
+						$url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][0]['id'];
+					    $datas = file_get_contents($url);
+					    $contents = json_decode($datas, true);
+						?>
+						<p><?php print $contents[$content['new_releases']['items'][0]['id']]['data']['short_description'] ?></p>
+						
 						<div class="span span1">
-							<p class="left">NAME</p>
-							<p class="right">: Sed Perst</p>
-							<div class="clearfix"></div>
-						</div>
-						<div class="span span2">
-							<p class="left">DEVELOPER</p>
-							<p class="right">: Martina</p>
+							<p class="left">Developers</p>
+							<p class="right">: <?php print $contents[$content['new_releases']['items'][0]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
 						<div class="span span3">
