@@ -4,6 +4,117 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+// Include FB config file && User class
+require_once 'configFb.php';
+require_once 'user.php';
+
+if(isset($accessToken)){
+    if(isset($_SESSION['facebook_access_token'])){
+        $fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
+    }else{
+        // Put short-lived access token in session
+        $_SESSION['facebook_access_token'] = (string) $accessToken;
+
+          // OAuth 2.0 client handler helps to manage access tokens
+        $oAuth2Client = $fb->getOAuth2Client();
+
+        // Exchanges a short-lived access token for a long-lived one
+        $longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($_SESSION['facebook_access_token']);
+        $_SESSION['facebook_access_token'] = (string) $longLivedAccessToken;
+
+        // Set default access token to be used in script
+        $fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
+    }
+
+    // Redirect the user back to the same page if url has "code" parameter in query string
+    if(isset($_GET['code'])){
+        header('Location: ./');
+    }
+
+    // Getting user facebook profile info
+    try {
+        $profileRequest = $fb->get('/me?fields=name,first_name,last_name,email,link,gender,locale,picture');
+        $fbUserProfile = $profileRequest->getGraphNode()->asArray();
+    } catch(FacebookResponseException $e) {
+        echo 'Graph returned an error: ' . $e->getMessage();
+        session_destroy();
+        // Redirect user back to app login page
+        header("Location: ./");
+        exit;
+    } catch(FacebookSDKException $e) {
+        echo 'Facebook SDK returned an error: ' . $e->getMessage();
+        exit;
+    }
+
+    // Initialize User class
+    $user = new User();
+
+    // Insert or update user data to the database
+    $fbUserData = array(
+        'oauth_provider'=> 'facebook',
+        'oauth_uid'     => $fbUserProfile['id'],
+        'first_name'    => $fbUserProfile['first_name'],
+        'last_name'     => $fbUserProfile['last_name'],
+        'email'         => $fbUserProfile['email'],
+        'gender'        => $fbUserProfile['gender'],
+        'locale'        => $fbUserProfile['locale'],
+        'picture'       => $fbUserProfile['picture']['url'],
+        'link'          => $fbUserProfile['link']
+    );
+    $userData = $user->checkUser($fbUserData);
+
+    // Put user data into session
+    $_SESSION['userData'] = $userData;
+
+    // Get logout url
+    $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'logout.php');
+
+    // Render facebook profile data
+    if(!empty($userData)){
+      // <div class="span span1">
+      //   <p class="left">DEVELOPER</p>
+      //   <p class="right">: Martina</p>
+      //   <div class="clearfix"></div>
+      // </div>
+      // <div class="span span2">
+      //   <p class="left">DEVELOPER</p>
+      //   <p class="right">: Martina</p>
+      //   <div class="clearfix"></div>
+      // </div>
+      // <div class="span span3">
+      //   <p class="left">REQUIRES</p>
+      //   <p class="right">: 2GB Hard Disk Space</p>
+      //   <div class="clearfix"></div>
+      // </div>
+        $output = '<p>Profile User</p>';
+        $output  .= '<div class="span span1">';
+        $output  .= '<p class="left">NAME</p>';
+        $output  .= '<p class="right">: ' . $userData['first_name'].' '.$userData['last_name'].'"</p>';
+        $output  .= '<div class="clearfix"></div>';
+        $output  .= '</div>';
+        $output  .= '<div class="span span2">';
+        $output  .= '<p class="left">EMAIL</p>';
+        $output .= '<p class="right">: ' . $userData['email'].'"</p>';
+        $output  .= '<div class="clearfix"></div>';
+        $output  .= '</div>';
+        $output .= '<br/><a href="'.$logoutURL.'" class="btn btn-default btn-block" role="button" aria-pressed="true">Logout</a>';
+        $x = '<img src="'.$userData['picture'].'" id="avatar" alt="avatar"/>'.$userData['first_name'];
+    }else{
+        $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
+    }
+
+}else{
+    // Get login url
+    $loginURL = $helper->getLoginUrl($redirectURL, $fbPermissions);
+
+    // Render facebook login button
+
+		$x= '<img src="images/avatar-1-1.png" id="avatar" alt="avatar"/>Login';
+    $output = '<p>Silahkan lakukan login</p>';
+    $output .= '<a href="'.htmlspecialchars($loginURL).'" class="btn btn-primary btn-block" role="button" aria-pressed="true">Facebook</a>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a  href="index.html">< <img src="images/logo.png" alt=" " /> </a>
+					<a  href="index.php"><img src="images/logo.png" style="width:170px;height:60px"/> </a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -68,15 +179,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="hover-effect"><a href="about.html">About</a></li>
 						<li class="hover-effect"><a href="games.html">Games</a></li>
 						<li class="hover-effect"><a href="news.php">News</a></li>
-						<li class="hover-effect"><a href="contact.html">Contact</a></li>
-						<li class="hover-effect"><a href="news.html"><img src="images/avatar-1-1.png" id="avatar" alt="avatar" style=" " />Raja Gusri</a></li>
+						<li class="hover-effect"><a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#login-pop">  <?php print $x; ?></a></li>
 					</ul>
 				</div>
-
 			</div>
 		</nav>
 		<!-- //Navbar -->
 
+		<!-- pop up new games -->
+				<div class="pop-up">
+					<div id="login-pop" class="mfp-hide book-form">
+						<div class="pop-up-content-agileits-w3layouts">
+							<div class="col-md-12 w3ls-right">
+								<h4>Login</h4>
+                   <?php echo $output; ?>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+		<!-- //new games-->
 		<!-- Slider -->
 		<div class="slider">
 			<ul class="rslides" id="slider">
@@ -395,7 +517,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					    $contents = json_decode($datas, true);
 						?>
 						<p><?php print $contents[$content['new_releases']['items'][1]['id']]['data']['short_description'] ?></p>
-
 						<div class="span span1">
 							<p class="left">Developers</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][1]['id']]['data']['type'] ?></p>
