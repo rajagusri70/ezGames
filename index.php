@@ -1,4 +1,4 @@
-<!--A Design by W3layouts 
+<!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -10,13 +10,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>Games Zone A Games Category Flat Bootstrap responsive Website Template | Index :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- css -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/popup-box.css" rel="stylesheet" type="text/css" media="all" />
 <!--// css -->
 <!-- font -->
@@ -40,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 </style>
 </head>
-<body> 
+<body>
 <?php
 
     $url = 'http://store.steampowered.com/api/featuredcategories/';
@@ -66,17 +66,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="hover-effect"><a href="index.html">Home</a></li>
+						<li class="hover-effect"><a href="index.php">Home</a></li>
 						<li class="hover-effect"><a href="about.html">About</a></li>
 						<li class="hover-effect"><a href="games.html">Games</a></li>
 						<li class="hover-effect"><a href="news.html">News</a></li>
 						<li class="hover-effect"><a href="contact.html">Contact</a></li>
-						<li class="hover-effect"><a href="news.html"><img src="images/avatar-1-1.png" id="avatar" alt="avatar" style=" " />Raja Gusri</a></li>
+						<li class="hover-effect"><a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog"><h4>Click here</h4></a></li>
 					</ul>
 				</div>
 
 			</div>
 		</nav>
+
+		<!-- pop up new games -->
+				<div class="pop-up">
+					<div id="small-dialog" class="mfp-hide book-form">
+						<div class="pop-up-content-agileits-w3layouts">
+							<div class="col-md-6 w3ls-left">
+								<img src="images/g1.jpg" alt=" " class="img-responsive zoom-img" />
+							</div>
+							<div class="col-md-6 w3ls-right">
+								<h4>Game-1</h4>
+								<p>Duis sodales nibh vitae augue feugiat efficitur. Sed vel urna sollicitudin, interdum massa nec, sagittis massa. </p>
+								<p class="agileits">Etiam porttitor neque enim, sit amet mollis est sollicitudin sed.</p>
+								<div class="span span1">
+									<p class="left">NAME</p>
+									<p class="right">: Sed Perst</p>
+									<div class="clearfix"></div>
+								</div>
+								<div class="span span2">
+									<p class="left">DEVELOPER</p>
+									<p class="right">: Martina</p>
+									<div class="clearfix"></div>
+								</div>
+								<div class="span span3">
+									<p class="left">REQUIRES</p>
+									<p class="right">: 2GB Hard Disk Space</p>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+		<!-- //new games-->
+
 		<!-- //Navbar -->
 
 		<!-- Slider -->
@@ -116,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="trend-w3layouts">
 	<div class="container">
 		<h2>Trending Games</h2>
-		<ul id="flexiselDemo1">			
+		<ul id="flexiselDemo1">
 				<li>
 					<div class="trend-grid">
 						<a "><h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
@@ -155,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</li>
 			</ul>
 		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-		<script type="text/javascript" src="js/modernizr.custom.53451.js"></script> 
+		<script type="text/javascript" src="js/modernizr.custom.53451.js"></script>
 		<script>
 								$(document).ready(function() {
 								$('.popup-with-zoom-anim').magnificPopup({
@@ -169,35 +203,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									removalDelay: 300,
 									mainClass: 'my-mfp-zoom-in'
 								});
-																								
+
 								});
 		</script>
-		
+
 						<script type="text/javascript">
 							$(window).load(function() {
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 4,
 									animationSpeed: 1000,
 									autoPlay: true,
-									autoPlaySpeed: 3000,    		
+									autoPlaySpeed: 3000,
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
+									responsiveBreakpoints: {
+										portrait: {
 											changePoint:480,
 											visibleItems: 2
-										}, 
-										landscape: { 
+										},
+										landscape: {
 											changePoint:640,
 											visibleItems:3
 										},
-										tablet: { 
+										tablet: {
 											changePoint:768,
 											visibleItems: 4
 										}
 									}
 								});
-								
+
 							});
 					</script>
 					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
@@ -306,7 +340,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 
 <!-- pop up new games -->
-		<div class="pop-up"> 
+		<div class="pop-up">
 			<div id="small-dialog" class="mfp-hide book-form">
 				<div class="pop-up-content-agileits-w3layouts">
 					<div class="col-md-6 w3ls-left">
@@ -371,7 +405,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</section>
 						<!-- flexSlider -->
-							
+
 							<script defer src="js/jquery.flexslider.js"></script>
 							<script type="text/javascript">
 							$(window).load(function(){
