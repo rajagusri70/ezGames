@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav navbar-nav navbar-right">
 						<li class="hover-effect"><a href="index.php">Home</a></li>
 						<li class="hover-effect"><a href="about.html">About</a></li>
-						<li class="hover-effect active"><a href="games.html">Games</a></li>
+						<li class="hover-effect active"><a href="games.php">Games</a></li>
 						<li class="hover-effect"><a href="news.php">News</a></li>
 						<li class="hover-effect"><a href="contact.html">Contact</a></li>
 					</ul>
@@ -87,8 +87,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                class="glyphicon glyphicon-th"></span>Grid</a>
 		        </div>
 		    </div>
-
-		    
 		    <div id="products" class="row list-group">
 		        <div class="item  col-xs-4 col-lg-4">
 		            <div class="thumbnail">
@@ -104,7 +102,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][0]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -124,7 +123,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][1]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][1]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -144,7 +144,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][2]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][2]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -164,7 +165,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][3]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][3]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -184,7 +186,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][4]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][4]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -204,7 +207,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][5]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][5]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -224,7 +228,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][6]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][6]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -244,7 +249,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][7]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][7]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -264,7 +270,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][8]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][8]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -284,7 +291,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['top_sellers']['items'][9]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][9]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -320,7 +328,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][0]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -340,7 +349,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][1]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -360,7 +370,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][2]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -380,7 +391,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][3]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -400,7 +412,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][4]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -420,7 +433,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][5]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -440,7 +454,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][6]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -460,7 +475,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][7]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -480,7 +496,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][8]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">More Info and Buy</a>
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            ?>
 		                        </div>
 		                    </div>
 		                </div>
