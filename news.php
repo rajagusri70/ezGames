@@ -52,9 +52,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav navbar-nav navbar-right">
 						<li class="hover-effect"><a href="index.php">Home</a></li>
 						<li class="hover-effect"><a href="about.html">About</a></li>
-						<li class="hover-effect"><a href="games.html">Games</a></li>
+						<li class="hover-effect"><a href="games.php">Games</a></li>
 						<li class="hover-effect active"><a href="news.php">News</a></li>
-						<li class="hover-effect"><a href="contact.html">Contact</a></li>
+						
 					</ul>
 				</div>
 
