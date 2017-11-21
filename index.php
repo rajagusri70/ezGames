@@ -690,6 +690,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <div class="services-bottom-w3-agileits">
+	<?php
+
+    $url = 'https://newsapi.org/v2/top-headlines?sources=ign&apiKey=997cb584096947b88a99ef3c399fbd20';
+    $data = file_get_contents($url);
+    $content = json_decode($data, true);
+
+	?>
 		<div class="container">
 			<div class="wthree_info">
 				<section class="slider">
@@ -697,23 +704,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="slides">
 							<li>
 								<div class="wthree_info_grid">
-									<h3>Duis aute dolor reprehenderit</h3>
-									<p>Excepteur sint occaecat cupidatat non proident, sunt officia.</p>
-									<a href="single.html" class="learn">Learn More</a>
+									<h3><?php print $content['articles'][0]['title'] ?></h3>
+									<p><?php print $content['articles'][0]['description'] ?></p>
+									<a href=<?php print $content['articles'][0]['url'] ?> class="learn">Learn More</a>
 								</div>
 							</li>
 							<li>
 								<div class="wthree_info_grid">
-									<h3>Aliquip commodo consequat</h3>
-									<p>Curabitur lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-									<a href="single.html" class="learn">Learn More</a>
+									<h3><?php print $content['articles'][1]['title'] ?></h3>
+									<p><?php print $content['articles'][1]['description'] ?></p>
+									<a href=<?php print $content['articles'][1]['url'] ?> class="learn">Learn More</a>
 								</div>
 							</li>
 							<li>
 								<div class="wthree_info_grid">
-									<h3>Quis autem vel eum iure ea</h3>
-									<p>Phasellus ornare consectetur erat, eu vehicula orci finibus at.</p>
-									<a href="single.html" class="learn">Learn More</a>
+									<h3><?php print $content['articles'][2]['title'] ?></h3>
+									<p><?php print $content['articles'][2]['description'] ?></p>
+									<a href=<?php print $content['articles'][2]['url'] ?> class="learn">Learn More</a>
 								</div>
 							</li>
 						</ul>
