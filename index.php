@@ -1,4 +1,4 @@
-<!--A Design by W3layouts 
+<!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -10,13 +10,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>Games Zone A Games Category Flat Bootstrap responsive Website Template | Index :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- css -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/popup-box.css" rel="stylesheet" type="text/css" media="all" />
 <!--// css -->
 <!-- font -->
@@ -40,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 </style>
 </head>
-<body> 
+<body>
 <?php
 
     $url = 'http://store.steampowered.com/api/featuredcategories/';
@@ -116,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="trend-w3layouts">
 	<div class="container">
 		<h2>Trending Games</h2>
-		<ul id="flexiselDemo1">			
+		<ul id="flexiselDemo1">
 				<li>
 					<div class="trend-grid">
 						<a "><h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
@@ -155,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</li>
 			</ul>
 		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-		<script type="text/javascript" src="js/modernizr.custom.53451.js"></script> 
+		<script type="text/javascript" src="js/modernizr.custom.53451.js"></script>
 		<script>
 								$(document).ready(function() {
 								$('.popup-with-zoom-anim').magnificPopup({
@@ -169,35 +169,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									removalDelay: 300,
 									mainClass: 'my-mfp-zoom-in'
 								});
-																								
+
 								});
 		</script>
-		
+
 						<script type="text/javascript">
 							$(window).load(function() {
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 4,
 									animationSpeed: 1000,
 									autoPlay: true,
-									autoPlaySpeed: 3000,    		
+									autoPlaySpeed: 3000,
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
+									responsiveBreakpoints: {
+										portrait: {
 											changePoint:480,
 											visibleItems: 2
-										}, 
-										landscape: { 
+										},
+										landscape: {
 											changePoint:640,
 											visibleItems:3
 										},
-										tablet: { 
+										tablet: {
 											changePoint:768,
 											visibleItems: 4
 										}
 									}
 								});
-								
+
 							});
 					</script>
 					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
@@ -209,32 +209,83 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- services-->
 <div class="services-agileits-w3layouts">
 	<div class="container">
-		<h3>Services</h3>
-		<div class="col-md-3 service-grid-agileits service-grid-agileits-top">
-			<span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
-			<h4>Quis tortor</h4>
-			<p>Curabitur suscipit porttitor aliquam. Etiam id placerat purus. Integer sodales elit eget arcu placerat.</p>
-			<a href="single.html">Read More</a>
+
+		<?php
+						error_reporting(0);
+						$get = json_decode(file_get_contents('http://ip-api.com/json/'),true);
+						date_default_timezone_set($get['timezone']);
+						$city = $_GET['q'];
+						 $string = "http://api.openweathermap.org/data/2.5/weather?q=".$city."&units=metric&appid=72f74e9012ef870f4d380e9866384c63";
+						 $data = json_decode(file_get_contents($string),true);
+
+						 $temp = $data['main']['temp'];
+
+						 $icon = $data['weather'][0]['icon'];
+						 $visibility = $data['visibility'];
+						 $visibilitykm = $visibility / 1000;
+						 $country =  "<center><h3>".$data['name'].",".$data['sys']['country']."</h3></center>";
+						 $logo = "<center><img src='http://openweathermap.org/img/w/".$icon.".png'"."style='width:50px;height:50px'></center>";
+						 $desc = "<h4 class='post-meta'>".$data['weather'][0]['description']."</h4>";
+
+						 $temperature =  "<center><p class='post-meta'>".$temp."°C<br>";
+						 $clouds = $data['clouds']['all']."%<br>";
+						 $humidity = $data['main']['humidity']."%<br>";
+						 $windspeed = $data['wind']['speed']."m/s<br>";
+						 $pressure = $data['main']['pressure']."hpa<br>";
+						 $visibility = $visibilitykm."Km<br>";
+						 $sunrise = date('h:i A', $data['sys']['sunrise'])."<br>";
+						 $sunset = date('h:i A', $data['sys']['sunset'])."</p></center>";
+
+
+						?>
+<div class="col-md-6 service-grid-agileits service-grid-agileits-top">
+              <?php
+                  echo $country;
+                  echo $logo;
+                  echo "<center><h2>".$desc."</h1></center>";
+              ?>
+						</div>
+							<div class="col-md-6 service-grid-agileits service-grid-agileits-top">
+							<h3>Weather</h3>
+								<h4>Update Cuaca Terkini</h4>
+					            <form class="form-group" method="GET" action="index.php">
+					                <div class="form-group">
+					                  <input type="text" class="form-control" id="place" name="q" placeholder="Masukkan Kota dan Negara">
+					                </div>
+					                <center>
+					                  <button type="submit" class="btn btn-primary" name="submit">Search</button>
+					                </center>
+					              </form>
+							</div>
+				</div>
+				<hr>
+		<div class="container">
+			<div class="col-md-2 service-grid-agileits service-grid-agileits-top">
+				<h4>Temperature</h4>
+				<h5> <?php echo $temperature; ?></h5>
+			</div>
+			<div class="col-md-2 service-grid-agileits">
+				<h4>Clouds</h4>
+				<h5><?php echo $clouds; ?></h5>
+			</div>
+			<div class="col-md-2 service-grid-agileits service-grid-agileits-bottom">
+				<h4>Windspeed</h4>
+				<h5><?php echo $windspeed; ?></h5>
+			</div>
+			<div class="col-md-2 service-grid-agileits service-grid-agileits-bottom">
+				<h4>Pressure</h4>
+				<h5><?php echo $pressure; ?></h5>
+			</div>
+			<div class="col-md-2 service-grid-agileits service-grid-agileits-bottom">
+				<h4>Sunrise</h4>
+				<h5>  <?php echo $sunrise; ?></h5>
+			</div>
+			<div class="col-md-2 service-grid-agileits service-grid-agileits-bottom">
+				<h4>Sunset</h4>
+				<h5>  <?php echo $sunset; ?></h5>
+			</div>
 		</div>
-		<div class="col-md-3 service-grid-agileits">
-			<span class="glyphicon glyphicon-random" aria-hidden="true"></span>
-			<h4>Eget arcu</h4>
-			<p>Curabitur suscipit porttitor aliquam. Etiam id placerat purus. Integer sodales elit eget arcu placerat.</p>
-			<a href="single.html">Read More</a>
-		</div>
-		<div class="col-md-3 service-grid-agileits service-grid-agileits-bottom">
-			<span class="glyphicon glyphicon-yen" aria-hidden="true"></span>
-			<h4>Risus porta</h4>
-			<p>Curabitur suscipit porttitor aliquam. Etiam id placerat purus. Integer sodales elit eget arcu placerat.</p>
-			<a href="single.html">Read More</a>
-		</div>
-		<div class="col-md-3 service-grid-agileits service-grid-agileits-bottom">
-			<span class="glyphicon glyphicon-object-align-right" aria-hidden="true"></span>
-			<h4>Proin sapien</h4>
-			<p>Curabitur suscipit porttitor aliquam. Etiam id placerat purus. Integer sodales elit eget arcu placerat.</p>
-			<a href="single.html">Read More</a>
-		</div>
-		<div class="clearfix"></div>
+
 	</div>
 </div>
 <!-- //services-->
@@ -244,7 +295,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<h3>New Games</h3>
 		<!-- <?php
-		// for ($i=0; $i < 9; $i++) { 
+		// for ($i=0; $i < 9; $i++) {
 		// 	print '<div class="col-md-3 new-grid-w3l view view-eighth">'
 		// 	// print '<img src='.print $content['new_releases']['items'][i]['large_capsule_image'].' alt=" " />'
 		// 	print '<div class="mask">'
@@ -262,43 +313,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-3 new-grid-w3l view view-eighth">
 			<img src=<?php print $content['new_releases']['items'][1]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
-				<a href="single.html"><h4>Click here</h4></a>
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog2"><h4>Click here</h4></a>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-w3l view view-eighth">
 			<img src=<?php print $content['new_releases']['items'][2]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
-				<a href="single.html"><h4>Click here</h4></a>
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog3"><h4>Click here</h4></a>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-w3l view view-eighth">
 			<img src=<?php print $content['new_releases']['items'][3]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
-				<a href="single.html"><h4>Click here</h4></a>
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog4"><h4>Click here</h4></a>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-agile view view-eighth">
 			<img src=<?php print $content['new_releases']['items'][4]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
-				<a href="single.html"><h4>Click here</h4></a>
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog5"><h4>Click here</h4></a>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-agile view view-eighth">
 			<img src=<?php print $content['new_releases']['items'][5]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
-				<a href="single.html"><h4>Click here</h4></a>
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog6"><h4>Click here</h4></a>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-agile view view-eighth">
 			<img src=<?php print $content['new_releases']['items'][6]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
-				<a href="single.html"><h4>Click here</h4></a>
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog7"><h4>Click here</h4></a>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-agile view view-eighth">
 			<img src=<?php print $content['new_releases']['items'][7]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
-				<a href="single.html"><h4>Click here</h4></a>
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog8"><h4>Click here</h4></a>
 			</div>
 		</div>
 		<div class="clearfix"></div>
@@ -306,7 +357,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 
 <!-- pop up new games -->
-		<div class="pop-up"> 
+		<div class="pop-up">
 			<div id="small-dialog" class="mfp-hide book-form">
 				<div class="pop-up-content-agileits-w3layouts">
 					<div class="col-md-6 w3ls-left">
@@ -314,28 +365,207 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-6 w3ls-right">
 						<h4><?php print $content['new_releases']['items'][0]['name'] ?></h4>
-						<?php 
+						<?php
 						$url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][0]['id'];
 					    $datas = file_get_contents($url);
 					    $contents = json_decode($datas, true);
 						?>
 						<p><?php print $contents[$content['new_releases']['items'][0]['id']]['data']['short_description'] ?></p>
-						
+
 						<div class="span span1">
 							<p class="left">Developers</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][0]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
-						<div class="span span3">
-							<p class="left">REQUIRES</p>
-							<p class="right">: 2GB Hard Disk Space</p>
-							<div class="clearfix"></div>
-						</div>
+						<a href="#" >See More Description and Buy</a>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
+		<div class="pop-up">
+			<div id="small-dialog2" class="mfp-hide book-form">
+				<div class="pop-up-content-agileits-w3layouts">
+					<div class="col-md-6 w3ls-left">
+						<img src=<?php print $content['new_releases']['items'][1]['large_capsule_image'] ?> alt=" " class="img-responsive zoom-img" />
+					</div>
+					<div class="col-md-6 w3ls-right">
+						<h4><?php print $content['new_releases']['items'][1]['name'] ?></h4>
+						<?php
+						$url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][1]['id'];
+					    $datas = file_get_contents($url);
+					    $contents = json_decode($datas, true);
+						?>
+						<p><?php print $contents[$content['new_releases']['items'][1]['id']]['data']['short_description'] ?></p>
+
+						<div class="span span1">
+							<p class="left">Developers</p>
+							<p class="right">: <?php print $contents[$content['new_releases']['items'][1]['id']]['data']['type'] ?></p>
+							<div class="clearfix"></div>
+						</div>
+						<a href="#" >See More Description and Buy</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="pop-up">
+			<div id="small-dialog3" class="mfp-hide book-form">
+				<div class="pop-up-content-agileits-w3layouts">
+					<div class="col-md-6 w3ls-left">
+						<img src=<?php print $content['new_releases']['items'][2]['large_capsule_image'] ?> alt=" " class="img-responsive zoom-img" />
+					</div>
+					<div class="col-md-6 w3ls-right">
+						<h4><?php print $content['new_releases']['items'][2]['name'] ?></h4>
+						<?php
+						$url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][2]['id'];
+					    $datas = file_get_contents($url);
+					    $contents = json_decode($datas, true);
+						?>
+						<p><?php print $contents[$content['new_releases']['items'][2]['id']]['data']['short_description'] ?></p>
+
+						<div class="span span1">
+							<p class="left">Developers</p>
+							<p class="right">: <?php print $contents[$content['new_releases']['items'][2]['id']]['data']['type'] ?></p>
+							<div class="clearfix"></div>
+						</div>
+						<a href="#" >See More Description and Buy</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="pop-up">
+			<div id="small-dialog4" class="mfp-hide book-form">
+				<div class="pop-up-content-agileits-w3layouts">
+					<div class="col-md-6 w3ls-left">
+						<img src=<?php print $content['new_releases']['items'][3]['large_capsule_image'] ?> alt=" " class="img-responsive zoom-img" />
+					</div>
+					<div class="col-md-6 w3ls-right">
+						<h4><?php print $content['new_releases']['items'][3]['name'] ?></h4>
+						<?php
+						$url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][3]['id'];
+					    $datas = file_get_contents($url);
+					    $contents = json_decode($datas, true);
+						?>
+						<p><?php print $contents[$content['new_releases']['items'][3]['id']]['data']['short_description'] ?></p>
+
+						<div class="span span1">
+							<p class="left">Developers</p>
+							<p class="right">: <?php print $contents[$content['new_releases']['items'][3]['id']]['data']['type'] ?></p>
+							<div class="clearfix"></div>
+						</div>
+						<a href="#" >See More Description and Buy</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="pop-up">
+			<div id="small-dialog5" class="mfp-hide book-form">
+				<div class="pop-up-content-agileits-w3layouts">
+					<div class="col-md-6 w3ls-left">
+						<img src=<?php print $content['new_releases']['items'][4]['large_capsule_image'] ?> alt=" " class="img-responsive zoom-img" />
+					</div>
+					<div class="col-md-6 w3ls-right">
+						<h4><?php print $content['new_releases']['items'][4]['name'] ?></h4>
+						<?php
+						$url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][4]['id'];
+					    $datas = file_get_contents($url);
+					    $contents = json_decode($datas, true);
+						?>
+						<p><?php print $contents[$content['new_releases']['items'][4]['id']]['data']['short_description'] ?></p>
+
+						<div class="span span1">
+							<p class="left">Developers</p>
+							<p class="right">: <?php print $contents[$content['new_releases']['items'][4]['id']]['data']['type'] ?></p>
+							<div class="clearfix"></div>
+						</div>
+						<a href="#" >See More Description and Buy</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="pop-up">
+			<div id="small-dialog6" class="mfp-hide book-form">
+				<div class="pop-up-content-agileits-w3layouts">
+					<div class="col-md-6 w3ls-left">
+						<img src=<?php print $content['new_releases']['items'][5]['large_capsule_image'] ?> alt=" " class="img-responsive zoom-img" />
+					</div>
+					<div class="col-md-6 w3ls-right">
+						<h4><?php print $content['new_releases']['items'][5]['name'] ?></h4>
+						<?php
+						$url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][5]['id'];
+					    $datas = file_get_contents($url);
+					    $contents = json_decode($datas, true);
+						?>
+						<p><?php print $contents[$content['new_releases']['items'][5]['id']]['data']['short_description'] ?></p>
+
+						<div class="span span1">
+							<p class="left">Developers</p>
+							<p class="right">: <?php print $contents[$content['new_releases']['items'][5]['id']]['data']['type'] ?></p>
+							<div class="clearfix"></div>
+						</div>
+						<a href="#" >See More Description and Buy</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="pop-up">
+			<div id="small-dialog7" class="mfp-hide book-form">
+				<div class="pop-up-content-agileits-w3layouts">
+					<div class="col-md-6 w3ls-left">
+						<img src=<?php print $content['new_releases']['items'][6]['large_capsule_image'] ?> alt=" " class="img-responsive zoom-img" />
+					</div>
+					<div class="col-md-6 w3ls-right">
+						<h4><?php print $content['new_releases']['items'][6]['name'] ?></h4>
+						<?php
+						$url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][6]['id'];
+					    $datas = file_get_contents($url);
+					    $contents = json_decode($datas, true);
+						?>
+						<p><?php print $contents[$content['new_releases']['items'][6]['id']]['data']['short_description'] ?></p>
+
+						<div class="span span1">
+							<p class="left">Developers</p>
+							<p class="right">: <?php print $contents[$content['new_releases']['items'][6]['id']]['data']['type'] ?></p>
+							<div class="clearfix"></div>
+						</div>
+						<a href="#" >See More Description and Buy</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="pop-up">
+			<div id="small-dialog8" class="mfp-hide book-form">
+				<div class="pop-up-content-agileits-w3layouts">
+					<div class="col-md-6 w3ls-left">
+						<img src=<?php print $content['new_releases']['items'][7]['large_capsule_image'] ?> alt=" " class="img-responsive zoom-img" />
+					</div>
+					<div class="col-md-6 w3ls-right">
+						<h4><?php print $content['new_releases']['items'][7]['name'] ?></h4>
+						<?php
+						$url = 'http://store.steampowered.com/api/appdetails?appids='.$content['new_releases']['items'][7]['id'];
+					    $datas = file_get_contents($url);
+					    $contents = json_decode($datas, true);
+						?>
+						<p><?php print $contents[$content['new_releases']['items'][7]['id']]['data']['short_description'] ?></p>
+
+						<div class="span span1">
+							<p class="left">Developers</p>
+							<p class="right">: <?php print $contents[$content['new_releases']['items'][7]['id']]['data']['type'] ?></p>
+							<div class="clearfix"></div>
+						</div>
+						<a href="#" >See More Description and Buy</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+<!-- //pop up new games -->
 <!-- //new games-->
 
 
@@ -371,7 +601,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</section>
 						<!-- flexSlider -->
-							
+
 							<script defer src="js/jquery.flexslider.js"></script>
 							<script type="text/javascript">
 							$(window).load(function(){
