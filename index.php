@@ -243,60 +243,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="new-w3-agile">
 	<div class="container">
 		<h3>New Games</h3>
+		<!-- <?php
+		// for ($i=0; $i < 9; $i++) { 
+		// 	print '<div class="col-md-3 new-grid-w3l view view-eighth">'
+		// 	// print '<img src='.print $content['new_releases']['items'][i]['large_capsule_image'].' alt=" " />'
+		// 	print '<div class="mask">'
+		// 	print '<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog"><h4>Click here</h4></a>'
+		// 	print '</div>'
+		// 	print '</div>'
+		//{
+		?> -->
 		<div class="col-md-3 new-grid-w3l view view-eighth">
-			<img src="images/ng1.jpg" alt=" " />
+			<img src=<?php print $content['new_releases']['items'][0]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
 				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog"><h4>Click here</h4></a>
-				<p>To learn more about this</p>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-w3l view view-eighth">
-			<img src="images/ng2.jpg" alt=" " />
+			<img src=<?php print $content['new_releases']['items'][1]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
 				<a href="single.html"><h4>Click here</h4></a>
-				<p>To learn more about this</p>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-w3l view view-eighth">
-			<img src="images/ng3.jpg" alt=" " />
+			<img src=<?php print $content['new_releases']['items'][2]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
 				<a href="single.html"><h4>Click here</h4></a>
-				<p>To learn more about this</p>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-w3l view view-eighth">
-			<img src="images/ng4.jpg" alt=" " />
+			<img src=<?php print $content['new_releases']['items'][3]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
 				<a href="single.html"><h4>Click here</h4></a>
-				<p>To learn more about this</p>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-agile view view-eighth">
-			<img src="images/ng5.jpg" alt=" " />
+			<img src=<?php print $content['new_releases']['items'][4]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
 				<a href="single.html"><h4>Click here</h4></a>
-				<p>To learn more about this</p>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-agile view view-eighth">
-			<img src="images/ng6.jpg" alt=" " />
+			<img src=<?php print $content['new_releases']['items'][5]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
 				<a href="single.html"><h4>Click here</h4></a>
-				<p>To learn more about this</p>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-agile view view-eighth">
-			<img src="images/ng7.jpg" alt=" " />
+			<img src=<?php print $content['new_releases']['items'][6]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
 				<a href="single.html"><h4>Click here</h4></a>
-				<p>To learn more about this</p>
 			</div>
 		</div>
 		<div class="col-md-3 new-grid-agile view view-eighth">
-			<img src="images/ng8.jpg" alt=" " />
+			<img src=<?php print $content['new_releases']['items'][7]['large_capsule_image'] ?> alt=" " />
 			<div class="mask">
 				<a href="single.html"><h4>Click here</h4></a>
-				<p>To learn more about this</p>
 			</div>
 		</div>
 		<div class="clearfix"></div>
@@ -308,10 +310,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div id="small-dialog" class="mfp-hide book-form">
 				<div class="pop-up-content-agileits-w3layouts">
 					<div class="col-md-6 w3ls-left">
-						<img src="images/g1.jpg" alt=" " class="img-responsive zoom-img" />
+						<img src=<?php print $content['new_releases']['items'][0]['large_capsule_image'] ?> alt=" " class="img-responsive zoom-img" />
 					</div>
 					<div class="col-md-6 w3ls-right">
-						<h4>Game-1</h4>
+						<h4><?php print $content['new_releases']['items'][0]['name'] ?></h4>
 						<p>Duis sodales nibh vitae augue feugiat efficitur. Sed vel urna sollicitudin, interdum massa nec, sagittis massa. </p>
 						<p class="agileits">Etiam porttitor neque enim, sit amet mollis est sollicitudin sed.</p>
 						<div class="span span1">
