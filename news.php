@@ -250,7 +250,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-4 footer-right-w3">
-			<a href="index.html"><h4>Games <img src="images/f1.png" alt=" " /> Zone</h4></a>
+			<a href="index.html"><h4>Easy <img src="images/f1.png" alt=" " /> Games</h4></a>
 			<p>EasyGames Shop adalah salah satu layanan jual-beli content digital. Comodo Shop menyediakan semua kebutuhan akses content digital anda</p>
 		</div>
 		<div class="clearfix"></div>
