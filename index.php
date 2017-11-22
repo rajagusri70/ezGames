@@ -320,7 +320,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						error_reporting(0);
 						$get = json_decode(file_get_contents('http://ip-api.com/json/'),true);
 						date_default_timezone_set($get['timezone']);
+
 						$city = $_GET['q'];
+						if (isset($city)){
+
+						}else{
+							$city = 'Bandung';
+						}
+
 						 $string = "http://api.openweathermap.org/data/2.5/weather?q=".$city."&units=metric&appid=72f74e9012ef870f4d380e9866384c63";
 						 $data = json_decode(file_get_contents($string),true);
 
