@@ -327,7 +327,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][0]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['coming_soon']['items'][0]['id']."'' ?> More Info and Buy</a>"
 		                            ?>
 		                        </div>
 		                    </div>
@@ -348,7 +348,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][1]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['coming_soon']['items'][1]['id']."'' ?> More Info and Buy</a>"
 		                            ?>
 		                        </div>
 		                    </div>
@@ -369,7 +369,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][2]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['coming_soon']['items'][2]['id']."'' ?> More Info and Buy</a>"
 		                            ?>
 		                        </div>
 		                    </div>
@@ -390,7 +390,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][3]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['coming_soon']['items'][3]['id']."'' ?> More Info and Buy</a>"
 		                            ?>
 		                        </div>
 		                    </div>
@@ -411,7 +411,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][4]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['coming_soon']['items'][4]['id']."'' ?> More Info and Buy</a>"
 		                            ?>
 		                        </div>
 		                    </div>
@@ -432,7 +432,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][5]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['coming_soon']['items'][5]['id']."'' ?> More Info and Buy</a>"
 		                            ?>
 		                        </div>
 		                    </div>
@@ -453,7 +453,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][6]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['coming_soon']['items'][6]['id']."'' ?> More Info and Buy</a>"
 		                            ?>
 		                        </div>
 		                    </div>
@@ -474,7 +474,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][7]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['coming_soon']['items'][7]['id']."'' ?> More Info and Buy</a>"
 		                            ?>
 		                        </div>
 		                    </div>
@@ -495,7 +495,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                               Rp. <?php echo substr ($content['coming_soon']['items'][8]['final_price'],0,-2); ?></p>
 		                        </div>
 		                        <div class="col-xs-12 col-md-6">
-		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['top_sellers']['items'][0]['id']."'' ?> More Info and Buy</a>"
+		                            <?php print "<a class='btn btn-success' href='item-details.php?appid=".$content['coming_soon']['items'][8]['id']."'' ?> More Info and Buy</a>"
 		                            ?>
 		                        </div>
 		                    </div>
