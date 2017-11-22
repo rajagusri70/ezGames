@@ -7,6 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <?php
 // Include FB config file && User class
 require_once 'configFb.php';
+include_once 'gpConfig.php';
 require_once 'user.php';
 
 if(isset($accessToken)){
@@ -101,6 +102,63 @@ if(isset($accessToken)){
     $output .= '<a href="'.htmlspecialchars($loginURL).'" class="btn btn-primary btn-block" role="button" aria-pressed="true">Facebook</a>';
 }
 ?>
+
+<?php
+
+if(isset($_GET['code'])){
+    $gClient->authenticate($_GET['code']);
+    $_SESSION['token'] = $gClient->getAccessToken();
+    header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
+}
+
+if (isset($_SESSION['token'])) {
+    $gClient->setAccessToken($_SESSION['token']);
+}
+
+if ($gClient->getAccessToken()) {
+    //Get user profile data from google
+    $gpUserProfile = $google_oauthV2->userinfo->get();
+
+    //Initialize User class
+    $user1 = new User();
+
+    //Insert or update user data to the database
+    $gpUserData = array(
+        'oauth_provider'=> 'google',
+        'oauth_uid'     => $gpUserProfile['id'],
+        'first_name'    => $gpUserProfile['given_name'],
+        'last_name'     => $gpUserProfile['family_name'],
+        'email'         => $gpUserProfile['email'],
+        'gender'        => $gpUserProfile['gender'],
+        'locale'        => $gpUserProfile['locale'],
+        'picture'       => $gpUserProfile['picture'],
+        'link'          => $gpUserProfile['link']
+    );
+    $userData1 = $user1->checkUser($gpUserData);
+
+    //Storing user data into session
+    $_SESSION['userData'] = $userData1;
+
+    //Render facebook profile data
+    if(!empty($userData1)){
+        $output1 = '<h1>Google+ Profile Details </h1>';
+        $output1 .= '<img src="'.$userData1['picture'].'" width="300" height="220">';
+        $output1 .= '<br/>Google ID : ' . $userData1['oauth_uid'];
+        $output1 .= '<br/>Name : ' . $userData1['first_name'].' '.$userData1['last_name'];
+        $output1 .= '<br/>Email : ' . $userData1['email'];
+        $output1 .= '<br/>Gender : ' . $userData1['gender'];
+        $output1 .= '<br/>Locale : ' . $userData1['locale'];
+        $output1 .= '<br/>Logged in with : Google';
+        $output1 .= '<br/><a href="'.$userData1['link'].'" target="_blank">Click to Visit Google+ Page</a>';
+        $output1 .= '<br/>Logout from <a href="logout.php">Google</a>';
+    }else{
+        $output1 = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
+    }
+} else {
+    $authUrl = $gClient->createAuthUrl();
+     $output1 = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"class="btn btn-danger btn-block" role="button" aria-pressed="true">Google</a>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -162,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="hover-effect"><a href="index.php">Home</a></li>
-						<li class="hover-effect"><a href="about.html">About</a></li>
+						<li class="hover-effect"><a href="about.php">About</a></li>
 						<li class="hover-effect"><a href="games.php">Games</a></li>
 						<li class="hover-effect"><a href="news.php">News</a></li>
 						<li class="hover-effect"><a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#login-pop">  <?php print $x; ?></a></li>
@@ -178,7 +236,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="pop-up-content-agileits-w3layouts">
 							<div class="col-md-12 w3ls-right">
 								<h4>Login</h4>
-                   <?php echo $output; ?>
+                   <?php echo $output; ?><br>
+                   <?php echo $output1; ?>
 							</div>
 							<div class="clearfix"></div>
 						</div>
