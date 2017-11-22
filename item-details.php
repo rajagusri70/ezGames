@@ -106,7 +106,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-5 wthree_blog_right">
 				<div class="w3ls_search" >
-					<b><h2 style="padding-bottom: 10px;float: left">Rp. <?php echo substr ($content[$steamAppID]['data']['price_overview']['final'],0,-2); ?></h2></b>
+					<b><h2 style="padding-bottom: 10px;float: left">Rp. <?php try {
+						echo substr ($content[$steamAppID]['data']['price_overview']['final'],0,-2);
+					} catch (Exception $e) {
+						echo "-";
+					}
+					?></h2></b>
 					<a href="#" class="myButton" style="width: 100%; height: 100%; padding-top: 15px; padding-bottom : 15px; border-radius: 10px"><h3>Buy this Game</h3></a>
 				</div>
 				</br></br></br>
