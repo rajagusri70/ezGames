@@ -125,6 +125,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
 
+
+<!-- Update Game list to Database -->
+<?php
+	
+	$db = new PDO ('mysql:host=localhost;dbname=gameonline','root','');
+	$url = 'http://store.steampowered.com/api/featuredcategories/&cc=ID';
+	$data = file_get_contents($url);
+	$content = json_decode($data, true);	
+
+	$sql = "INSERT IGNORE INTO game_list (appid, name, img, price) VALUES (?,?,?,?)";
+	$stmt = $db->prepare($sql);
+	
+	for ($a=0; $a<10; $a++){
+		$stmt->bindParam(1,$content['top_sellers']['items'][$a]['id']);
+		$stmt->bindParam(2,$content['top_sellers']['items'][$a]['name']);
+		$stmt->bindParam(3,$content['top_sellers']['items'][$a]['header_image']);
+		$stmt->bindParam(4,$content['top_sellers']['items'][$a]['final_price']);
+		$stmt->execute();
+	}
+?>
+<!-- //Update Game list  to Database -->
+
 </head>
 <body>
 <!-- banner -->
