@@ -97,7 +97,7 @@ if(isset($accessToken)){
 
     // Render facebook login button
 
-		$x= '<img src="images/avatar-1-1.png" id="avatar" alt="avatar"/>Login';
+	$x= '<img src="images/avatar-1-1.png" id="avatar" alt="avatar"/>Login';
     $output = '<p>Silahkan lakukan login</p>';
     $output .= '<a href="'.htmlspecialchars($loginURL).'" class="btn btn-primary btn-block" role="button" aria-pressed="true">Facebook</a>';
 }
@@ -322,6 +322,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 		<!-- //new games-->
+
+		<!-- pop up new games -->
+				
+		<!-- //new games-->
+
 		<!-- Slider -->
 		<div class="slider">
 			<ul class="rslides" id="slider">

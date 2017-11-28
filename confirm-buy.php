@@ -113,12 +113,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				<div class="agileits_reply">
 					
-					<form action="#" method="post">
-						<input type="text" name="Name" placeholder="Name" required="" value='<?php print $row["first_name"]?> <?php print $row["last_name"]?>' >
-						<input type="email" name="Email" placeholder="Email" required="" value=<?php print $row["email"] ?>>
-						<input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="NIM" placeholder="NIM" required="">
-						<select required="">
-							<option>- Pilih jurusan -</option>
+					<form action='buy-process.php?appID=<?php echo $buyAppID ?>&userID=<?php print $row["id"] ?>' method="post">
+						<input type="text" name="name" placeholder="Name" required="" value='<?php print $row["first_name"]?> <?php print $row["last_name"]?>' readonly>
+						<input type="email" name="email" placeholder="Email" required="" value=<?php print $row["email"] ?> readonly >
+						<input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="nim" placeholder="NIM" required="">
+						<select name="jurusan" >
 							<option>Sistem Informasi</option>
 							<option>Teknik Industri</option>
 							<option>Teknik Informatika</option>
