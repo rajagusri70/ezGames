@@ -9,8 +9,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 require_once 'configFb.php';
 include_once 'gpConfig.php';
 require_once 'user.php';
-include('conn.php');
-include('session.php');
 
 if(isset($accessToken)){
     if(isset($_SESSION['facebook_access_token'])){

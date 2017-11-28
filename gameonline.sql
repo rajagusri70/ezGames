@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28 Nov 2017 pada 06.39
+-- Generation Time: 28 Nov 2017 pada 08.32
 -- Versi Server: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `gameonline`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id_trans` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `appid` int(11) NOT NULL,
+  `nim` int(10) NOT NULL,
+  `jurusan` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -46,7 +60,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `oauth_provider`, `oauth_uid`, `first_name`, `last_name`, `email`, `gender`, `locale`, `picture`, `link`, `created`, `modified`) VALUES
-(2, 'facebook', '1832227446805507', 'Mindha', 'Ningrum', '', 'female', 'id_ID', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/18199496_1685326371495616_1649935463236303426_n.jpg?oh=31501d7b063a9f9dc4fa05a75695b7e5&oe=5A8DC3CE', 'https://www.facebook.com/app_scoped_user_id/1832227446805507/', '2017-11-21 07:19:51', '2017-11-28 05:49:44'),
+(2, 'facebook', '1832227446805507', 'Mindha', 'Ningrum', '', 'female', 'id_ID', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/18199496_1685326371495616_1649935463236303426_n.jpg?oh=31501d7b063a9f9dc4fa05a75695b7e5&oe=5A8DC3CE', 'https://www.facebook.com/app_scoped_user_id/1832227446805507/', '2017-11-21 07:19:51', '2017-11-28 08:11:35'),
 (3, 'facebook', '1893657647315773', 'Prasetyo', 'Rizki Nugroho', 'prnprn02@gmail.com', 'male', 'en_GB', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/21270886_1815643608450511_7491636751478574400_n.jpg?oh=a01788705c1ff7ddc5972a1e97e3f2f2&oe=5A979994', 'https://www.facebook.com/app_scoped_user_id/1893657647315773/', '2017-11-21 07:20:36', '2017-11-21 07:20:37'),
 (4, 'facebook', '1758382854173041', 'Raja', 'Gusri', 'rajagusri@yahoo.co.id', 'male', 'en_GB', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/18835765_1565326333478695_5983375808478842401_n.jpg?oh=d6e7ef3099cd8a82213151b122c19ee4&oe=5AA4D49A', 'https://www.facebook.com/app_scoped_user_id/1758382854173041/', '2017-11-21 07:27:59', '2017-11-21 08:26:05'),
 (5, 'facebook', '1871959792833022', 'Fadhil', 'Pratama', 'pfadhil46@yahoo.com', 'male', 'id_ID', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/22281729_1824674174228251_1663386625628013881_n.jpg?oh=16318e4f8bcedb48fbf47e72afb5835c&oe=5A929B63', 'https://www.facebook.com/app_scoped_user_id/1871959792833022/', '2017-11-21 08:54:01', '2017-11-22 02:37:12');
@@ -54,6 +68,13 @@ INSERT INTO `users` (`id`, `oauth_provider`, `oauth_uid`, `first_name`, `last_na
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_trans`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `users`
@@ -66,10 +87,25 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_trans` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
