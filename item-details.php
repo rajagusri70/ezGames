@@ -1,22 +1,26 @@
-<!--A Design by W3layouts 
+<!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+// include('conn.php');
+// include('session.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Item Details</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- css -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
-<link href="css/button.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/button.css" rel="stylesheet" type="text/css" media="all" />
 <!--// css -->
 <!-- font -->
 <link href='//fonts.googleapis.com/css?family=Josefin+Sans:400,100,100italic,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -25,7 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
 </head>
-<body> 
+<body>
 <!-- banner -->
 <div class="sub-banner">
 		<!-- Navbar -->
@@ -55,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</nav>
 </div>
 <!-- banner -->
-<!-- breadcrumbs --> 
+<!-- breadcrumbs -->
 	<?php
 	$steamAppID = $_GET['appid'];
 	$url = 'http://store.steampowered.com/api/appdetails?cc=ID&appids='.$_GET['appid'];
@@ -82,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="wthree_blog_left_grid_slider">
 						<img src=<?php print $content[$steamAppID]['data']['header_image'] ?> alt=" " class="img-responsive" />
 					</div>
-					
+
 					<h3><?php print $content[$steamAppID]['data']['name'] ?></h3>
 					<ul>
 						<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="#"><?php print $content[$steamAppID]['data']['developers'][0] ?></a><i>|</i></li>
@@ -102,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a class="facebook" href="#"></a></li>
 					</ul>
 				</div>
-				
+
 			</div>
 			<div class="col-md-5 wthree_blog_right">
 				<div class="w3ls_search" >
@@ -138,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-<!-- //single -->	
+<!-- //single -->
 
 <!-- footer -->
 <div class="footer">
