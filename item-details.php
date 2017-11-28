@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- breadcrumbs --> 
 	<?php
 	$steamAppID = $_GET['appid'];
-	$url = 'http://store.steampowered.com/api/appdetails?appids='.$_GET['appid'];
+	$url = 'http://store.steampowered.com/api/appdetails?cc=ID&appids='.$_GET['appid'];
     $data = file_get_contents($url);
     $content = json_decode($data, true);
 

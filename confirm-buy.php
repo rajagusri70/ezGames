@@ -4,6 +4,9 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php 
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <?php
 	$buyAppID = $_GET['steamAppID'];
-	$url = 'http://store.steampowered.com/api/appdetails?appids='.$buyAppID;
+	$url = 'http://store.steampowered.com/api/appdetails?cc=ID&appids='.$buyAppID;
 	$data = file_get_contents($url);
 	$content = json_decode($data, true);
 
@@ -42,8 +45,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-	VALUES ('John', 'Doe', 'john@example.com')";
+	$sql = "SELECT * FROM users WHERE oauth_uid=".$_SESSION['userLogin']."";
+	$result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($result) > 0) {
+    	//output data of each row
+     	while($row = mysqli_fetch_assoc($result)) {
+         	//Do whatever you want here
 ?>
 </head>
 <body> 
@@ -106,8 +114,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="agileits_reply">
 					
 					<form action="#" method="post">
-						<input type="text" name="Name" placeholder="Name" required="">
-						<input type="email" name="Email" placeholder="Email" required="">
+						<input type="text" name="Name" placeholder="Name" required="" value='<?php print $row["first_name"]?> <?php print $row["last_name"]?>' >
+						<input type="email" name="Email" placeholder="Email" required="" value=<?php print $row["email"] ?>>
 						<input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="NIM" placeholder="NIM" required="">
 						<select required="">
 							<option>- Pilih jurusan -</option>
@@ -119,6 +127,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</select>
 						
 						<input type="submit" value="Submit">
+						<?php 
+							}
+	}else {
+     	
+	}
+						?>
 					</form>
 				</div>
 			</div>

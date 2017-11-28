@@ -66,7 +66,7 @@ if(isset($accessToken)){
     $userData = $user->checkUser($fbUserData);
 
     // Put user data into session
-    $_SESSION['userData'] = $userData;
+    $_SESSION['userLogin'] = $userData['oauth_uid'];
 
     // Get logout url
     $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'logout.php');
@@ -137,7 +137,7 @@ if ($gClient->getAccessToken()) {
     $userData1 = $user1->checkUser($gpUserData);
 
     //Storing user data into session
-    $_SESSION['userData'] = $userData1;
+    // $_SESSION['userData'] = $userData1;
 
     //Render facebook profile data
     if(!empty($userData1)){
@@ -159,6 +159,31 @@ if ($gClient->getAccessToken()) {
      $output1 = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"class="btn btn-danger btn-block" role="button" aria-pressed="true">Google</a>';
 }
 ?>
+
+<?php 
+	// $servername = "localhost";
+	// $username = "root";
+	// $password = "";
+	// $dbname = "gameonline";
+
+	// // Create connection
+	// $conn = new mysqli($servername, $username, $password, $dbname);
+	// $sql = "SELECT * FROM users WHERE oauth_uid=".$userData['oauth_uid']."";
+	// $result = mysqli_query($conn, $sql);
+
+	// if (mysqli_num_rows($result) > 0) {
+ //    // output data of each row
+ //    	while($row = mysqli_fetch_assoc($result)) {
+ //        	$userToken = $row["oauth_uid"];
+
+	// 		$_SESSION["userLogin"] = $userToken;
+ //    	}
+	// }else {
+ //    	echo "0 results";
+	// }
+	
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
