@@ -62,10 +62,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $data = file_get_contents($url);
     $content = json_decode($data, true);
 
-    // $image_url = $content[$steamAppID]['data']['header_image'];
-    // $game_name = $content[$steamAppID]['data']['name'];
-    // $game_price = substr ($content[$steamAppID]['data']['price_overview']['final'],0,-2);
-
 	?>
 	<div class="agileits_breadcrumbs">
 		<div class="container">
@@ -110,13 +106,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-5 wthree_blog_right">
 				<div class="w3ls_search" >
-					<b><h2 style="padding-bottom: 10px;float: left">Rp. <?php try {
-						echo substr ($content[$steamAppID]['data']['price_overview']['final'],0,-2);
-					} catch (Exception $e) {
-						echo "-";
-					}
-					?></h2></b>
-					<a href="confirm-buy.php?buyAppID="<?php print $steamAppID ?> class="myButton" style="width: 100%; height: 100%; padding-top: 15px; padding-bottom : 15px; border-radius: 10px"><h3>Buy this Game</h3></a>
+					<b><h2 style="padding-bottom: 10px;float: left">Rp. <?php echo substr ($content[$steamAppID]['data']['price_overview']['final'],0,-2); ?></h2></b>
+					
+					<?php print "<a href='confirm-buy.php?steamAppID=".$steamAppID."' class='myButton' style='width: 100%; height: 100%; padding-top: 15px; padding-bottom : 15px; border-radius: 10px'><h3>Buy this Game</h3></a>"
+					?>
 				</div>
 				</br></br></br>
 				<div class="w3agile_flickr_posts">

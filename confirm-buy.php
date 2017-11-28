@@ -25,9 +25,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/bootstrap.js"></script>
 
 <?php
-	$url = 'http://store.steampowered.com/api/featuredcategories/&cc=ID';
+	$buyAppID = $_GET['steamAppID'];
+	$url = 'http://store.steampowered.com/api/appdetails?appids='.$buyAppID;
 	$data = file_get_contents($url);
 	$content = json_decode($data, true);
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "gameonline";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+	VALUES ('John', 'Doe', 'john@example.com')";
 ?>
 </head>
 <body> 
@@ -66,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="agileits_breadcrumbs_left">
 			</div>
 			<div class="agileits_breadcrumbs_right">
-				<h3>[Game Name]</h3>
+				<h3><?php print $content[$buyAppID]['data']['name'] ?></h3>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -78,9 +94,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-7 wthree_blog_left">
 				<div class="wthree_blog_left_grid">
 					<div class="wthree_blog_left_grid_slider">
-						<img src="images/s1.jpg" alt=" " class="img-responsive" />
+						<img src=<?php print $content[$buyAppID]['data']['header_image'] ?>  alt=" " class="img-responsive" />
 					</div>
-					<h3>You will pay : Rp. 100.000,-</h3>
+					<h3>You will pay : Rp. <?php echo substr ($content[$buyAppID]['data']['price_overview']['final'],0,-2); ?></h3>
 					<h4>Fill these form to continue :</h4></br>
 				</div>
 				<div class="agileits_share">
@@ -92,8 +108,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<form action="#" method="post">
 						<input type="text" name="Name" placeholder="Name" required="">
 						<input type="email" name="Email" placeholder="Email" required="">
-						<input type="text" name="Subject" placeholder="NIM" required="">
-						<select>
+						<input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="NIM" placeholder="NIM" required="">
+						<select required="">
+							<option>- Pilih jurusan -</option>
 							<option>Sistem Informasi</option>
 							<option>Teknik Industri</option>
 							<option>Teknik Informatika</option>
@@ -115,24 +132,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					
 				</div>
 				<div class="w3agile_flickr_posts">
-					<h3>In-gameScreeshots</h3>
+					<h3>In-game Screeshots</h3>
 					<div class="w3agile_flickr_post_left">
-						<a href="single.html"><img src="images/ng1.jpg" alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][0]['path_full'] ?> /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href="single.html"><img src="images/ng2.jpg" alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][1]['path_full'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href="single.html"><img src="images/ng3.jpg" alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][2]['path_full'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href="single.html"><img src="images/ng4.jpg" alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][3]['path_full'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href="single.html"><img src="images/ng5.jpg" alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][4]['path_full'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href="single.html"><img src="images/ng6.jpg" alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][5]['path_full'] ?>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -149,19 +166,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h4>Contact</h4>
 			<ul>
 				<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></li>
-				<li><a href="mailto:example@mail.com"><h6>ex@mail.com</h6></a></li>
+				<li><a href="mailto:contact@easygames.com"><h6>contact@easygames.com</h6></a></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
-				<li><h6>+18045678834</h6></li>
+				<li><h6>+6282279552</h6></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></li>
-				<li><h6>4th Avenue,London</h6></li>
+				<li><h6>Telkom University, Bandung</h6></li>
 			</ul>
 			<ul>
 				<li><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></li>
-				<li><h6>(0033)6544 5453 644</h6></li>
+				<li><h6>(022)6544 5453 644</h6></li>
 			</ul>
 		</div>
 		<div class="col-md-5 footer-middle-w3">
@@ -193,17 +210,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-4 footer-right-w3">
-			<a href="index.html"><h4>Games <img src="images/f1.png" alt=" " /> Zone</h4></a>
-			<p>Donec lobortis diam eu auctor porta. Phasellus in elementum tortor, sit amet imperdiet urna pellentesque non risus porta.</p>
-			<p class="agileinfo">Suspendisse convallis malesuada libero, non rutrum arcu pellentesque lacinia.</p>
+			<a  href="index.php"><img src="images/logowarna1.png" style="width:170px;height:60px"/> </a>
+			<p>EasyGames Shop adalah salah satu layanan jual-beli content digital. EasyGame hop menyediakan semua kebutuhan akses content digital anda</p>
 		</div>
 		<div class="clearfix"></div>
 		<div class="copyright">
-			<p>&copy; 2017 Games Zone. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank"> W3layouts </a></p>
+			<p>&copy; 2017 Easy Games. All Rights Reserved | Design by EasyGames Team </a></p>
 		</div>
 	</div>
 </div>
-
 <!-- //footer -->
 </body>
 </html>
