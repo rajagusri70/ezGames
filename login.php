@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 // Include FB config file && User class
 require_once 'configFb.php';
 require_once 'user.php';
+include('session.php');
 
 if(isset($accessToken)){
     if(isset($_SESSION['facebook_access_token'])){
@@ -117,7 +118,7 @@ if(isset($accessToken)){
 
 		<div class="design-w3l">
 			<div class="mail-form-agile">
-				<form action="index.php" method="post">
+				<form method="post" action="login_process.php">
 					<?php echo $output; ?>
 					<input type="submit" value="Facebook" style="background-color:#3F51B5; width:200px;"><br><br>
 					<input type="submit" value="Google" style="background-color:#D50000; width:200px;">
