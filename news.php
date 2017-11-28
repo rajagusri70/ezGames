@@ -86,7 +86,7 @@ if(isset($accessToken)){
         $output  .= '<div class="clearfix"></div>';
         $output  .= '</div>';
         $output .= '<br/><a href="'.$logoutURL.'" class="btn btn-default btn-block" role="button" aria-pressed="true">Logout</a>';
-        $x = '<img src="'.$userData['picture'].'" id="avatar" alt="avatar" style="width:30px;height:30px;"/>'.$userData['first_name'];
+        $x = '<img src="'.$userData['picture'].'" id="avatar" alt="avatar" style="width:30px;height:30px;border-radius:50%"/>&nbsp;&nbsp;'.$userData['first_name'];
     }else{
         $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
     }
@@ -97,7 +97,7 @@ if(isset($accessToken)){
 
     // Render facebook login button
 
-		$x= '<img src="images/avatar-1-1.png" id="avatar" alt="avatar" style="width:30px;height:30px;"/> &nbsp; Login';
+		$x= '<img src="images/avatar-1-1.png" id="avatar" alt="avatar" style="width:30px;height:30px;border-radius:50%"/> &nbsp;&nbsp; Login';
     $output = '<p>Silahkan lakukan login</p>';
     $output .= '<a href="'.htmlspecialchars($loginURL).'" class="btn btn-primary btn-block" role="button" aria-pressed="true">Facebook</a>';
 }

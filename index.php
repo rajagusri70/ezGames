@@ -162,12 +162,15 @@ if ($gClient->getAccessToken()) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="google-signin-client_id" content="219859760657-gjncl9e3ul0j4spcu989fn4gmu8bgbte.apps.googleusercontent.com.apps.googleusercontent.com">
 <title>EasyGames Shop SI3803 | Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+<script src="jquery.min.js"></script>
 <!-- css -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
@@ -193,6 +196,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		margin-right: 10px;
 
 	}
+  .profile{
+    border: 3px solid #B7B7B7;
+    padding: 10px;
+    margin-top: 10px;
+    width: 350px;
+    background-color: #F7F7F7;
+    height: 160px;
+}
+.profile p{margin: 0px 0px 10px 0px;}
+.head{margin-bottom: 10px;}
+.head a{float: right;}
+.profile img{width: 100px;float: left;margin: 0px 10px 10px 0px;}
+.proDetails{float: left;}
 </style>
 </head>
 <body>
@@ -202,7 +218,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $data = file_get_contents($url);
     $content = json_decode($data, true);
 
-    ?>
+
+//     function onSuccess(googleUser) {
+//     var profile = googleUser.getBasicProfile();
+//     gapi.client.load('plus', 'v1', function () {
+//         var request = gapi.client.plus.people.get({
+//             'userId': 'me'
+//         });
+//         //Display the user details
+//         request.execute(function (resp) {
+//             var profileHTML = '<div class="profile"><div class="head">Welcome '+resp.name.givenName+'! <a href="javascript:void(0);" onclick="signOut();">Sign out</a></div>';
+//             profileHTML += '<img src="'+resp.image.url+'"/><div class="proDetails"><p>'+resp.displayName+'</p><p>'+resp.emails[0].value+'</p><p>'+resp.gender+'</p><p>'+resp.id+'</p><p><a href="'+resp.url+'">View Google+ Profile</a></p></div></div>';
+//             $('.userContent').html(profileHTML);
+//             $('#gSignIn').slideUp('slow');
+//         });
+//     });
+// }
+// function onFailure(error) {
+//     alert(error);
+// }
+// function renderButton() {
+//     gapi.signin2.render('gSignIn', {
+//         'scope': 'profile email',
+//         'width': 240,
+//         'height': 50,
+//         'longtitle': true,
+//         'theme': 'dark',
+//         'onsuccess': onSuccess,
+//         'onfailure': onFailure
+//     });
+// }
+// function signOut() {
+//     var auth2 = gapi.auth2.getAuthInstance();
+//     auth2.signOut().then(function () {
+//         $('.userContent').html('');
+//         $('#gSignIn').slideDown('slow');
+//     });
+// }
+?>
 <!-- Header -->
 	<div class="header">
 		<!-- Navbar -->
@@ -237,7 +290,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-md-12 w3ls-right">
 								<h4>Login</h4>
                    <?php echo $output; ?><br>
-                   <?php echo $output1; ?>
+                   <?php echo $output1; ?><br>
 							</div>
 							<div class="clearfix"></div>
 						</div>
