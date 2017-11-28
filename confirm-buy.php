@@ -1,26 +1,21 @@
-<!--A Design by W3layouts
+<!--A Design by W3layouts 
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<?php
-// include('conn.php');
-// include('session.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Item Details</title>
+<title>Games Zone A Games Category Flat Bootstrap responsive Website Template | Single :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- css -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/button.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
 <!--// css -->
 <!-- font -->
 <link href='//fonts.googleapis.com/css?family=Josefin+Sans:400,100,100italic,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -28,8 +23,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //font -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
+
+<?php
+	$buyAppID = $_GET['steamAppID'];
+	$url = 'http://store.steampowered.com/api/appdetails?appids='.$buyAppID;
+	$data = file_get_contents($url);
+	$content = json_decode($data, true);
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "gameonline";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+	VALUES ('John', 'Doe', 'john@example.com')";
+?>
 </head>
-<body>
+<body> 
 <!-- banner -->
 <div class="sub-banner">
 		<!-- Navbar -->
@@ -60,19 +77,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- banner -->
 <!-- breadcrumbs -->
-	<?php
-	$steamAppID = $_GET['appid'];
-	$url = 'http://store.steampowered.com/api/appdetails?appids='.$_GET['appid'];
-    $data = file_get_contents($url);
-    $content = json_decode($data, true);
-
-	?>
 	<div class="agileits_breadcrumbs">
 		<div class="container">
 			<div class="agileits_breadcrumbs_left">
 			</div>
 			<div class="agileits_breadcrumbs_right">
-				<h3>Game Details and Buy</h3>
+				<h3><?php print $content[$buyAppID]['data']['name'] ?></h3>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -84,57 +94,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-7 wthree_blog_left">
 				<div class="wthree_blog_left_grid">
 					<div class="wthree_blog_left_grid_slider">
-						<img src=<?php print $content[$steamAppID]['data']['header_image'] ?> alt=" " class="img-responsive" />
+						<img src=<?php print $content[$buyAppID]['data']['header_image'] ?>  alt=" " class="img-responsive" />
 					</div>
-
-					<h3><?php print $content[$steamAppID]['data']['name'] ?></h3>
-					<ul>
-						<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="#"><?php print $content[$steamAppID]['data']['developers'][0] ?></a><i>|</i></li>
-						<li><span class="glyphicon glyphicon-heart" aria-hidden="true"></span><a href="#"><?php print $content[$steamAppID]['data']['recommendations']['total'] ?></a><i>|</i></li>
-						<li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">5</a><i>|</i></li>
-						<li><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Voluptatibus</li>
-					</ul>
-					<p style="line-height: 20px"><?php print $content[$steamAppID]['data']['detailed_description'] ?>
-					</p>
+					<h3>You will pay : Rp. <?php echo substr ($content[$buyAppID]['data']['price_overview']['final'],0,-2); ?></h3>
+					<h4>Fill these form to continue :</h4></br>
 				</div>
-			</br></br>
 				<div class="agileits_share">
-					<ul>
-						<li><a class="linkedin" href="#"></a></li>
-						<li><a class="google" href="#"></a></li>
-						<li><a class="twitter" href="#"></a></li>
-						<li><a class="facebook" href="#"></a></li>
-					</ul>
+					
 				</div>
-
+				
+				<div class="agileits_reply">
+					
+					<form action="#" method="post">
+						<input type="text" name="Name" placeholder="Name" required="">
+						<input type="email" name="Email" placeholder="Email" required="">
+						<input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="NIM" placeholder="NIM" required="">
+						<select required="">
+							<option>- Pilih jurusan -</option>
+							<option>Sistem Informasi</option>
+							<option>Teknik Industri</option>
+							<option>Teknik Informatika</option>
+							<option>Teknik Elektro</option>
+							<option>Teknik Telekomunikasi</option>
+						</select>
+						
+						<input type="submit" value="Submit">
+					</form>
+				</div>
 			</div>
 			<div class="col-md-5 wthree_blog_right">
-				<div class="w3ls_search" >
-					<b><h2 style="padding-bottom: 10px;float: left">Rp. <?php echo substr ($content[$steamAppID]['data']['price_overview']['final'],0,-2); ?></h2></b>
+				
+				<div class="w3l_categories">
 					
-					<?php print "<a href='confirm-buy.php?steamAppID=".$steamAppID."' class='myButton' style='width: 100%; height: 100%; padding-top: 15px; padding-bottom : 15px; border-radius: 10px'><h3>Buy this Game</h3></a>"
-					?>
 				</div>
-				</br></br></br>
+				
+				<div class="w3l_archives">
+					
+				</div>
 				<div class="w3agile_flickr_posts">
-					<h3>In-game Screenshot</h3>
+					<h3>In-game Screeshots</h3>
 					<div class="w3agile_flickr_post_left">
-						<a href=""><img src=<?php print $content[$steamAppID]['data']['screenshots'][0]['path_full'] ?> /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][0]['path_full'] ?> /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href=""><img src=<?php print $content[$steamAppID]['data']['screenshots'][1]['path_full'] ?> alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][1]['path_full'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href=""><img src=<?php print $content[$steamAppID]['data']['screenshots'][2]['path_full'] ?> alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][2]['path_full'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href=""><img src=<?php print $content[$steamAppID]['data']['screenshots'][3]['path_full'] ?> alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][3]['path_full'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href=""><img src=<?php print $content[$steamAppID]['data']['screenshots'][4]['path_full'] ?> alt=" " class="img-responsive" /></a>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][4]['path_full'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 					<div class="w3agile_flickr_post_left">
-						<a href=""><img src=<?php print $content[$steamAppID]['data']['screenshots'][5]['path_full'] ?>
+						<a href=""><img src=<?php print $content[$buyAppID]['data']['screenshots'][5]['path_full'] ?>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -142,7 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-<!-- //single -->
+<!-- //single -->	
 
 <!-- footer -->
 <div class="footer">

@@ -1488,6 +1488,14 @@ color:rgb(2, 24, 136) !important;
 	background:transparent;
 	outline:none;
 }
+.agileits_reply select, .agileits_reply input[type="email"] {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #000;
+    margin-bottom: 30px;
+	background:transparent;
+	outline:none;
+}
 .agileits_reply  textarea{
     width: 100%;
     padding: 10px;
@@ -1505,6 +1513,7 @@ color:rgb(2, 24, 136) !important;
     color:rgb(2, 24, 136);
 	outline:none;
 	background:transparent;
+	align-items: center;
 }
 .agileits_reply input[type="submit"]:hover{
     border: 2px solid #E91E63;
