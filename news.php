@@ -245,4 +245,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 </div>
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/modernizr.custom.53451.js"></script>
+<script>
+          $(document).ready(function() {
+          $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+          });
+
+          });
+</script>
 <!-- //footer -->
+<!-- //footer -->
+</body>
+</html>
