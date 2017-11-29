@@ -6,182 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
 // Include FB config file && User class
-require_once 'configFb.php';
-include_once 'gpConfig.php';
-require_once 'user.php';
-
-if(isset($accessToken)){
-    if(isset($_SESSION['facebook_access_token'])){
-        $fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
-    }else{
-        // Put short-lived access token in session
-        $_SESSION['facebook_access_token'] = (string) $accessToken;
-
-          // OAuth 2.0 client handler helps to manage access tokens
-        $oAuth2Client = $fb->getOAuth2Client();
-
-        // Exchanges a short-lived access token for a long-lived one
-        $longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($_SESSION['facebook_access_token']);
-        $_SESSION['facebook_access_token'] = (string) $longLivedAccessToken;
-
-        // Set default access token to be used in script
-        $fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
-    }
-
-    // Redirect the user back to the same page if url has "code" parameter in query string
-    if(isset($_GET['code'])){
-        header('Location: ./');
-    }
-
-    // Getting user facebook profile info
-    try {
-        $profileRequest = $fb->get('/me?fields=name,first_name,last_name,email,link,gender,locale,picture');
-        $fbUserProfile = $profileRequest->getGraphNode()->asArray();
-    } catch(FacebookResponseException $e) {
-        echo 'Graph returned an error: ' . $e->getMessage();
-        session_destroy();
-        // Redirect user back to app login page
-        header("Location: ./");
-        exit;
-    } catch(FacebookSDKException $e) {
-        echo 'Facebook SDK returned an error: ' . $e->getMessage();
-        exit;
-    }
-
-    // Initialize User class
-    $user = new User();
-
-    // Insert or update user data to the database
-    $fbUserData = array(
-        'oauth_provider'=> 'facebook',
-        'oauth_uid'     => $fbUserProfile['id'],
-        'first_name'    => $fbUserProfile['first_name'],
-        'last_name'     => $fbUserProfile['last_name'],
-        'email'         => $fbUserProfile['email'],
-        'gender'        => $fbUserProfile['gender'],
-        'locale'        => $fbUserProfile['locale'],
-        'picture'       => $fbUserProfile['picture']['url'],
-        'link'          => $fbUserProfile['link']
-    );
-    $userData = $user->checkUser($fbUserData);
-
-    // Put user data into session
-    $_SESSION['userLogin'] = $userData['oauth_uid'];
-
-    // Get logout url
-    $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'logout.php');
-
-    // Render facebook profile data
-    if(!empty($userData)){
-
-        $output = '<p>Profile User</p>';
-        $output  .= '<div class="span span1">';
-        $output  .= '<p class="left">NAME</p>';
-        $output  .= '<p class="right">: ' . $userData['first_name'].' '.$userData['last_name'].'"</p>';
-        $output  .= '<div class="clearfix"></div>';
-        $output  .= '</div>';
-        $output  .= '<div class="span span2">';
-        $output  .= '<p class="left">EMAIL</p>';
-        $output .= '<p class="right">: ' . $userData['email'].'"</p>';
-        $output  .= '<div class="clearfix"></div>';
-        $output  .= '</div>';
-        $output .= '<br/><a href="'.$logoutURL.'" class="btn btn-default btn-block" role="button" aria-pressed="true">Logout</a>';
-        $x = '<img src="'.$userData['picture'].'" id="avatar" alt="avatar"/>'.$userData['first_name'];
-    }else{
-        $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
-    }
-
-}else{
-    // Get login url
-    $loginURL = $helper->getLoginUrl($redirectURL, $fbPermissions);
-
-    // Render facebook login button
-
-	$x= '<img src="images/avatar-1-1.png" id="avatar" alt="avatar"/>Login';
-    $output = '<p>Silahkan lakukan login</p>';
-    $output .= '<a href="'.htmlspecialchars($loginURL).'" class="btn btn-primary btn-block" role="button" aria-pressed="true">Facebook</a>';
-}
-?>
-
-<?php
-
-if(isset($_GET['code'])){
-    $gClient->authenticate($_GET['code']);
-    $_SESSION['token'] = $gClient->getAccessToken();
-    header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
-}
-
-if (isset($_SESSION['token'])) {
-    $gClient->setAccessToken($_SESSION['token']);
-}
-
-if ($gClient->getAccessToken()) {
-    //Get user profile data from google
-    $gpUserProfile = $google_oauthV2->userinfo->get();
-
-    //Initialize User class
-    $user1 = new User();
-
-    //Insert or update user data to the database
-    $gpUserData = array(
-        'oauth_provider'=> 'google',
-        'oauth_uid'     => $gpUserProfile['id'],
-        'first_name'    => $gpUserProfile['given_name'],
-        'last_name'     => $gpUserProfile['family_name'],
-        'email'         => $gpUserProfile['email'],
-        'gender'        => $gpUserProfile['gender'],
-        'locale'        => $gpUserProfile['locale'],
-        'picture'       => $gpUserProfile['picture'],
-        'link'          => $gpUserProfile['link']
-    );
-    $userData1 = $user1->checkUser($gpUserData);
-
-    //Storing user data into session
-    // $_SESSION['userData'] = $userData1;
-
-    //Render facebook profile data
-    if(!empty($userData1)){
-        $output1 = '<h1>Google+ Profile Details </h1>';
-        $output1 .= '<img src="'.$userData1['picture'].'" width="300" height="220">';
-        $output1 .= '<br/>Google ID : ' . $userData1['oauth_uid'];
-        $output1 .= '<br/>Name : ' . $userData1['first_name'].' '.$userData1['last_name'];
-        $output1 .= '<br/>Email : ' . $userData1['email'];
-        $output1 .= '<br/>Gender : ' . $userData1['gender'];
-        $output1 .= '<br/>Locale : ' . $userData1['locale'];
-        $output1 .= '<br/>Logged in with : Google';
-        $output1 .= '<br/><a href="'.$userData1['link'].'" target="_blank">Click to Visit Google+ Page</a>';
-        $output1 .= '<br/>Logout from <a href="logout.php">Google</a>';
-    }else{
-        $output1 = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
-    }
-} else {
-    $authUrl = $gClient->createAuthUrl();
-     $output1 = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"class="btn btn-danger btn-block" role="button" aria-pressed="true">Google</a>';
-}
-?>
-
-<?php 
-	// $servername = "localhost";
-	// $username = "root";
-	// $password = "";
-	// $dbname = "gameonline";
-
-	// // Create connection
-	// $conn = new mysqli($servername, $username, $password, $dbname);
-	// $sql = "SELECT * FROM users WHERE oauth_uid=".$userData['oauth_uid']."";
-	// $result = mysqli_query($conn, $sql);
-
-	// if (mysqli_num_rows($result) > 0) {
- //    // output data of each row
- //    	while($row = mysqli_fetch_assoc($result)) {
- //        	$userToken = $row["oauth_uid"];
-
-	// 		$_SESSION["userLogin"] = $userToken;
- //    	}
-	// }else {
- //    	echo "0 results";
-	// }
-	
+include('userLogin.php');
 ?>
 
 <!DOCTYPE html>
@@ -242,44 +67,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $url = 'http://store.steampowered.com/api/featuredcategories/';
     $data = file_get_contents($url);
     $content = json_decode($data, true);
-
-
-//     function onSuccess(googleUser) {
-//     var profile = googleUser.getBasicProfile();
-//     gapi.client.load('plus', 'v1', function () {
-//         var request = gapi.client.plus.people.get({
-//             'userId': 'me'
-//         });
-//         //Display the user details
-//         request.execute(function (resp) {
-//             var profileHTML = '<div class="profile"><div class="head">Welcome '+resp.name.givenName+'! <a href="javascript:void(0);" onclick="signOut();">Sign out</a></div>';
-//             profileHTML += '<img src="'+resp.image.url+'"/><div class="proDetails"><p>'+resp.displayName+'</p><p>'+resp.emails[0].value+'</p><p>'+resp.gender+'</p><p>'+resp.id+'</p><p><a href="'+resp.url+'">View Google+ Profile</a></p></div></div>';
-//             $('.userContent').html(profileHTML);
-//             $('#gSignIn').slideUp('slow');
-//         });
-//     });
-// }
-// function onFailure(error) {
-//     alert(error);
-// }
-// function renderButton() {
-//     gapi.signin2.render('gSignIn', {
-//         'scope': 'profile email',
-//         'width': 240,
-//         'height': 50,
-//         'longtitle': true,
-//         'theme': 'dark',
-//         'onsuccess': onSuccess,
-//         'onfailure': onFailure
-//     });
-// }
-// function signOut() {
-//     var auth2 = gapi.auth2.getAuthInstance();
-//     auth2.signOut().then(function () {
-//         $('.userContent').html('');
-//         $('#gSignIn').slideDown('slow');
-//     });
-// }
 ?>
 <!-- Header -->
 	<div class="header">
@@ -315,7 +102,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-md-12 w3ls-right">
 								<h4>Login</h4>
                    <?php echo $output; ?><br>
-                   <?php echo $output1; ?><br>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -324,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- //new games-->
 
 		<!-- pop up new games -->
-				
+
 		<!-- //new games-->
 
 		<!-- Slider -->
@@ -367,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<ul id="flexiselDemo1">
 				<li>
 					<div class="trend-grid">
-						<a "><h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
+						<a><h4><?php print $content['top_sellers']['items'][0]['name'] ?></h4>
 						<img src=<?php print $content['top_sellers']['items'][0]['large_capsule_image'] ?> alt=" " class="img-responsive" /></a>
 					</div>
 				</li>
@@ -402,53 +188,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</li>
 			</ul>
-		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-		<script type="text/javascript" src="js/modernizr.custom.53451.js"></script>
-		<script>
-								$(document).ready(function() {
-								$('.popup-with-zoom-anim').magnificPopup({
-									type: 'inline',
-									fixedContentPos: false,
-									fixedBgPos: true,
-									overflowY: 'auto',
-									closeBtnInside: true,
-									preloader: false,
-									midClick: true,
-									removalDelay: 300,
-									mainClass: 'my-mfp-zoom-in'
-								});
-
-								});
-		</script>
-
-						<script type="text/javascript">
-							$(window).load(function() {
-								$("#flexiselDemo1").flexisel({
-									visibleItems: 4,
-									animationSpeed: 1000,
-									autoPlay: true,
-									autoPlaySpeed: 3000,
-									pauseOnHover: true,
-									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: {
-										portrait: {
-											changePoint:480,
-											visibleItems: 2
-										},
-										landscape: {
-											changePoint:640,
-											visibleItems:3
-										},
-										tablet: {
-											changePoint:768,
-											visibleItems: 4
-										}
-									}
-								});
-
-							});
-					</script>
-					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 	</div>
 </div>
 <!-- //trend -->
@@ -939,6 +678,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 </div>
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/modernizr.custom.53451.js"></script>
+<script>
+          $(document).ready(function() {
+          $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+          });
+
+          });
+</script>
+<!-- //footer -->
 <!-- //footer -->
 </body>
 </html>
