@@ -6,11 +6,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
 session_start();
+include('userLogin.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Games Zone A Games Category Flat Bootstrap responsive Website Template | Single :: w3layouts</title>
+<title>Buy Game</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -74,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="hover-effect"><a href="index.php">Home</a></li>
-						<li class="hover-effect"><a href="about.html">About</a></li>
+						<li class="hover-effect"><a href="about.php">About</a></li>
 						<li class="hover-effect active"><a href="games.php">Games</a></li>
 						<li class="hover-effect"><a href="news.php">News</a></li>
 					</ul>
