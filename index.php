@@ -287,7 +287,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- new games -->
 <div class="new-w3-agile">
 	<div class="container">
-		<h3>New Games</h3>
+		<h3>New Release</h3>
 		<!-- <?php
 		// for ($i=0; $i < 9; $i++) {
 		// 	print '<div class="col-md-3 new-grid-w3l view view-eighth">'
@@ -367,7 +367,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p><?php print $contents[$content['new_releases']['items'][0]['id']]['data']['short_description'] ?></p>
 
 						<div class="span span1">
-							<p class="left">Developers</p>
+							<p class="left">Category</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][0]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
@@ -392,7 +392,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						?>
 						<p><?php print $contents[$content['new_releases']['items'][1]['id']]['data']['short_description'] ?></p>
 						<div class="span span1">
-							<p class="left">Developers</p>
+							<p class="left">Category</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][1]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
@@ -418,7 +418,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p><?php print $contents[$content['new_releases']['items'][2]['id']]['data']['short_description'] ?></p>
 
 						<div class="span span1">
-							<p class="left">Developers</p>
+							<p class="left">Category</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][2]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
@@ -444,7 +444,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p><?php print $contents[$content['new_releases']['items'][3]['id']]['data']['short_description'] ?></p>
 
 						<div class="span span1">
-							<p class="left">Developers</p>
+							<p class="left">Category</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][3]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
@@ -470,7 +470,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p><?php print $contents[$content['new_releases']['items'][4]['id']]['data']['short_description'] ?></p>
 
 						<div class="span span1">
-							<p class="left">Developers</p>
+							<p class="left">Category</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][4]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
@@ -496,7 +496,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p><?php print $contents[$content['new_releases']['items'][5]['id']]['data']['short_description'] ?></p>
 
 						<div class="span span1">
-							<p class="left">Developers</p>
+							<p class="left">Category</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][5]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
@@ -522,7 +522,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p><?php print $contents[$content['new_releases']['items'][6]['id']]['data']['short_description'] ?></p>
 
 						<div class="span span1">
-							<p class="left">Developers</p>
+							<p class="left">Category</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][6]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
@@ -548,7 +548,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p><?php print $contents[$content['new_releases']['items'][7]['id']]['data']['short_description'] ?></p>
 
 						<div class="span span1">
-							<p class="left">Developers</p>
+							<p class="left">Category</p>
 							<p class="right">: <?php print $contents[$content['new_releases']['items'][7]['id']]['data']['type'] ?></p>
 							<div class="clearfix"></div>
 						</div>
