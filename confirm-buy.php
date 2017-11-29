@@ -5,13 +5,13 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-include('conn.php');
-include('session.php');
+session_start();
+include('userLogin.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Games Zone A Games Category Flat Bootstrap responsive Website Template | Single :: w3layouts</title>
+<title>Buy Game</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
