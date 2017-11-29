@@ -60,7 +60,7 @@ if(isset($accessToken)){
     $userData = $user->checkUser($fbUserData);
 
     // Put user data into session
-    $_SESSION['userData'] = $userData;
+    $_SESSION['userLogin'] = $userData['oauth_uid'];
 
     // Get logout url
     $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'logout.php');

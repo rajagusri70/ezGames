@@ -1,6 +1,6 @@
 <?php
-// session_start();
-if(!isset($_SESSION['id']) && !isset($_SESSION['oauth_uid'])) { //melakukan pengecekkan SESSION username & password
+session_start();
+if(!isset($_SESSION['userLogin'])) { //melakukan pengecekkan SESSION username & password
   echo '
   <script language="javascript">
   alert("Login First");
