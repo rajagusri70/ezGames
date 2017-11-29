@@ -5,8 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-session_start();
 include('userLogin.php');
+include('session.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -198,28 +198,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-5 footer-middle-w3">
 			<h4>Latest Games</h4>
 			<div class="col-md-3 img-w3-agile">
-				<a href="single.html"><img src="images/ng1.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng1.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile">
-				<a href="single.html"><img src="images/ng2.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng2.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile">
-				<a href="single.html"><img src="images/ng3.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng3.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile">
-				<a href="single.html"><img src="images/ng4.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng4.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile footer-middle-wthree">
-				<a href="single.html"><img src="images/ng5.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng5.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile footer-middle-wthree">
-				<a href="single.html"><img src="images/ng6.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng6.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile footer-middle-wthree">
-				<a href="single.html"><img src="images/ng7.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng7.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile footer-middle-wthree">
-				<a href="single.html"><img src="images/ng8.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng8.jpg" alt=" " /></a>
 			</div>
 			<div class="clearfix"></div>
 		</div>

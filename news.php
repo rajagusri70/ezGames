@@ -90,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 	<div class="blog1-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src=<?php print $content['articles'][7]['urlToImage'] ?> alt=" " /></a>
+			<a href=""><img src=<?php print $content['articles'][7]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
 			<a href=<?php print $content['articles'][0]['url'] ?>><h4><?php print $content['articles'][7]['title'] ?></h4></a>
@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="blog2-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src=<?php print $content['articles'][1]['urlToImage'] ?> alt=" " /></a>
+			<a href=""><img src=<?php print $content['articles'][1]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
 			<a href=<?php print $content['articles'][1]['url'] ?>><h4><?php print $content['articles'][1]['title'] ?></h4></a>
@@ -128,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="blog3-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src=<?php print $content['articles'][5]['urlToImage'] ?> alt=" " /></a>
+			<a href=""><img src=<?php print $content['articles'][5]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
 			<a href=<?php print $content['articles'][2]['url'] ?>><h4><?php print $content['articles'][5]['title'] ?></h4></a>
@@ -146,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="clearfix"></div>
 		<div class="blog2-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src=<?php print $content['articles'][3]['urlToImage'] ?> alt=" " /></a>
+			<a href=""><img src=<?php print $content['articles'][3]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
 			<a href=<?php print $content['articles'][3]['url'] ?>><h4><?php print $content['articles'][3]['title'] ?></h4></a>
@@ -164,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="clearfix"></div>
 		<div class="blog2-w3ls">
 		<div class="col-md-4 blog-image-w3l">
-			<a href="single.html"><img src=<?php print $content['articles'][4]['urlToImage'] ?> alt=" " /></a>
+			<a href=""><img src=<?php print $content['articles'][4]['urlToImage'] ?> alt=" " /></a>
 		</div>
 		<div class="col-md-8 blog-text-w3ls">
 			<a href=<?php print $content['articles'][4]['url'] ?>><h4><?php print $content['articles'][4]['title'] ?></h4></a>
@@ -210,28 +210,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-5 footer-middle-w3">
 			<h4>Latest Games</h4>
 			<div class="col-md-3 img-w3-agile">
-				<a href="single.html"><img src="images/ng1.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng1.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile">
-				<a href="single.html"><img src="images/ng2.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng2.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile">
-				<a href="single.html"><img src="images/ng3.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng3.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile">
-				<a href="single.html"><img src="images/ng4.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng4.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile footer-middle-wthree">
-				<a href="single.html"><img src="images/ng5.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng5.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile footer-middle-wthree">
-				<a href="single.html"><img src="images/ng6.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng6.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile footer-middle-wthree">
-				<a href="single.html"><img src="images/ng7.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng7.jpg" alt=" " /></a>
 			</div>
 			<div class="col-md-3 img-w3-agile footer-middle-wthree">
-				<a href="single.html"><img src="images/ng8.jpg" alt=" " /></a>
+				<a href=""><img src="images/ng8.jpg" alt=" " /></a>
 			</div>
 			<div class="clearfix"></div>
 		</div>

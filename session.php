@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if(!isset($_SESSION['userLogin'])) { //melakukan pengecekkan SESSION username & password
   echo '
   <script language="javascript">
