@@ -1,11 +1,12 @@
-<!--A Design by W3layouts 
+<!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<?php 
-	session_start();
+<?php
+include('conn.php');
+include('session.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,12 +14,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>Games Zone A Games Category Flat Bootstrap responsive Website Template | Single :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- css -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!--// css -->
 <!-- font -->
 <link href='//fonts.googleapis.com/css?family=Josefin+Sans:400,100,100italic,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -54,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          	//Do whatever you want here
 ?>
 </head>
-<body> 
+<body>
 <!-- banner -->
 <div class="sub-banner">
 		<!-- Navbar -->
@@ -108,11 +109,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4>Fill these form to continue :</h4></br>
 				</div>
 				<div class="agileits_share">
-					
+
 				</div>
-				
+
 				<div class="agileits_reply">
-					
+
 					<form action='buy-process.php?appID=<?php echo $buyAppID ?>&userID=<?php print $row["id"] ?>' method="post">
 						<input type="text" name="name" placeholder="Name" required="" value='<?php print $row["first_name"]?> <?php print $row["last_name"]?>' readonly>
 						<input type="email" name="email" placeholder="Email" required="" value=<?php print $row["email"] ?> readonly >
@@ -124,25 +125,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<option>Teknik Elektro</option>
 							<option>Teknik Telekomunikasi</option>
 						</select>
-						
+
 						<input type="submit" value="Submit">
-						<?php 
+						<?php
 							}
 	}else {
-     	
+
 	}
 						?>
 					</form>
 				</div>
 			</div>
 			<div class="col-md-5 wthree_blog_right">
-				
+
 				<div class="w3l_categories">
-					
+
 				</div>
-				
+
 				<div class="w3l_archives">
-					
+
 				</div>
 				<div class="w3agile_flickr_posts">
 					<h3>In-game Screeshots</h3>
@@ -170,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-<!-- //single -->	
+<!-- //single -->
 
 <!-- footer -->
 <div class="footer">

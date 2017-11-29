@@ -5,8 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-// include('conn.php');
-// include('session.php');
+include('userLogin.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +18,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- css -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/popup-box.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/button.css" rel="stylesheet" type="text/css" media="all" />
 <!--// css -->
@@ -52,6 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="hover-effect"><a href="about.php">About</a></li>
 						<li class="hover-effect active"><a href="games.php">Games</a></li>
 						<li class="hover-effect"><a href="news.php">News</a></li>
+						<li class="hover-effect"><a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#login-pop">  <?php echo $x; ?></a></li>
 					</ul>
 				</div>
 
@@ -59,6 +60,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</nav>
 </div>
 <!-- banner -->
+<!-- pop up new games -->
+		<div class="pop-up">
+			<div id="login-pop" class="mfp-hide book-form">
+				<div class="pop-up-content-agileits-w3layouts">
+					<div class="col-md-12 w3ls-right">
+						<h4>Login</h4>
+							 <?php echo $output; ?>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+<!-- //new games-->
 <!-- breadcrumbs -->
 	<?php
 	$steamAppID = $_GET['appid'];
@@ -111,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-5 wthree_blog_right">
 				<div class="w3ls_search" >
 					<b><h2 style="padding-bottom: 10px;float: left">Rp. <?php echo substr ($content[$steamAppID]['data']['price_overview']['final'],0,-2); ?></h2></b>
-					
+
 					<?php print "<a href='confirm-buy.php?steamAppID=".$steamAppID."' class='myButton' style='width: 100%; height: 100%; padding-top: 15px; padding-bottom : 15px; border-radius: 10px'><h3>Buy this Game</h3></a>"
 					?>
 				</div>
