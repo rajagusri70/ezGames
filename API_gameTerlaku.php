@@ -7,7 +7,7 @@ define('DB','gameonline');
 $con = mysqli_connect(HOST,USER,PASS,DB);
 
 $sql =
-"select game_list.name, COUNT(transaksi.appid) as jumlah FROM transaksi
+"select game_list.name, game_list.img, COUNT(transaksi.appid) as jumlah FROM transaksi
 JOIN game_list ON game_list.appid=transaksi.appid
 GROUP BY game_list.appid
 order by COUNT(transaksi.appid) desc";
@@ -17,7 +17,8 @@ order by COUNT(transaksi.appid) desc";
  while($dt=mysqli_fetch_array($query)){
   $item[] = array(
    "name"=>$dt["name"],
-   "jumlah"=>$dt["jumlah"]   
+   "img"=>$dt["img"],
+   "jumlah"=>$dt["jumlah"]
   );
  }
 

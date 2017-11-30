@@ -88,6 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="hover-effect"><a href="about.php">About</a></li>
 						<li class="hover-effect"><a href="games.php">Games</a></li>
 						<li class="hover-effect"><a href="news.php">News</a></li>
+            <li class="hover-effect"><a href="apidocument.php">API</a></li>
 						<li class="hover-effect"><a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#login-pop">  <?php print $x; ?></a></li>
 					</ul>
 				</div>

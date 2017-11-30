@@ -10,7 +10,7 @@ include('userLogin.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EasyGames Shop SI3803 | News</title>
+<title>EasyGames Shop SI3803 | API</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Games Zone Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -31,7 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/bootstrap.js"></script>
 <?php
 
-    $url = 'https://newsapi.org/v2/top-headlines?sources=ign&apiKey=997cb584096947b88a99ef3c399fbd20';
+    $url = 'http://localhost/ezGames/API_gameTerlaku.php';
     $data = file_get_contents($url);
     $content = json_decode($data, true);
 
@@ -59,8 +59,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="hover-effect"><a href="index.php">Home</a></li>
 						<li class="hover-effect"><a href="about.php">About</a></li>
 						<li class="hover-effect"><a href="games.php">Games</a></li>
-						<li class="hover-effect active"><a href="news.php">News</a></li>
-            <li class="hover-effect"><a href="apidocument.php">API</a></li>
+						<li class="hover-effect"><a href="news.php">News</a></li>
+            <li class="hover-effect active"><a href="apidocument.php">API</a></li>
             <li class="hover-effect"><a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#login-pop">  <?php echo $x; ?></a></li>
           </ul>
         </div>
@@ -83,109 +83,83 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </div>
 
 <div class="events-w3layouts">
-	<h2>News</h2>
+	<h2>Api Documentation</h2>
 	<div class="clearfix"></div>
 </div>
 
 <div class="events-section2-agileinfo">
 <div class="container">
 	<div class="blog1-w3ls">
-		<div class="col-md-4 blog-image-w3l">
-			<a href=""><img src=<?php print $content['articles'][7]['urlToImage'] ?> alt=" " /></a>
-		</div>
 		<div class="col-md-8 blog-text-w3ls">
-			<a href=<?php print $content['articles'][0]['url'] ?>><h4><?php print $content['articles'][7]['title'] ?></h4></a>
-			<div class="item_info">
-					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][7]['author'] ?></a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][7]['publishedAt'] ?></li>
-						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
-					</ul>
-			 </div>
-			 <p><?php print $content['articles'][7]['description'] ?></p>
-			 <a href="<?php print $content['articles'][7]['url'] ?>" class="blog-read" >Read More</a>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-	<div class="blog2-w3ls">
-		<div class="col-md-4 blog-image-w3l">
-			<a href=""><img src=<?php print $content['articles'][1]['urlToImage'] ?> alt=" " /></a>
-		</div>
-		<div class="col-md-8 blog-text-w3ls">
-			<a href=<?php print $content['articles'][1]['url'] ?>><h4><?php print $content['articles'][1]['title'] ?></h4></a>
-			<div class="item_info">
-					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][1]['author'] ?></a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][1]['publishedAt'] ?>
-						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
-					</ul>
-			 </div>
-			 <p><?php print $content['articles'][1]['description'] ?></p>
-			 <a href="<?php print $content['articles'][1]['url'] ?>" class="blog-read" >Read More</a>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-	<div class="blog3-w3ls">
-		<div class="col-md-4 blog-image-w3l">
-			<a href=""><img src=<?php print $content['articles'][5]['urlToImage'] ?> alt=" " /></a>
-		</div>
-		<div class="col-md-8 blog-text-w3ls">
-			<a href=<?php print $content['articles'][2]['url'] ?>><h4><?php print $content['articles'][5]['title'] ?></h4></a>
-			<div class="item_info">
-					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][5]['author'] ?></a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][5]['publishedAt'] ?></li>
-						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
-					</ul>
-			 </div>
-			 <p><?php print $content['articles'][5]['description'] ?></p>
-			 <a href=<?php print $content['articles'][5]['url'] ?> class="blog-read" >Read More</a>
-		</div>
-		<div class="clearfix"></div>
-		<div class="blog2-w3ls">
-		<div class="col-md-4 blog-image-w3l">
-			<a href=""><img src=<?php print $content['articles'][3]['urlToImage'] ?> alt=" " /></a>
-		</div>
-		<div class="col-md-8 blog-text-w3ls">
-			<a href=<?php print $content['articles'][3]['url'] ?>><h4><?php print $content['articles'][3]['title'] ?></h4></a>
-			<div class="item_info">
-					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][3]['author'] ?></a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][3]['publishedAt'] ?></li>
-						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
-					</ul>
-			 </div>
-			 <p><?php print $content['articles'][3]['description'] ?></p>
-			 <a href="<?php print $content['articles'][3]['url'] ?>" class="blog-read" >Read More</a>
-		</div>
-		<div class="clearfix"></div>
-		<div class="blog2-w3ls">
-		<div class="col-md-4 blog-image-w3l">
-			<a href=""><img src=<?php print $content['articles'][4]['urlToImage'] ?> alt=" " /></a>
-		</div>
-		<div class="col-md-8 blog-text-w3ls">
-			<a href=<?php print $content['articles'][4]['url'] ?>><h4><?php print $content['articles'][4]['title'] ?></h4></a>
-			<div class="item_info">
-					<ul>
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i><?php print $content['articles'][4]['author'] ?></a></li>
-						<li><i class="glyphicon glyphicon-calendar"></i><?php print $content['articles'][4]['publishedAt'] ?></li>
-						<li><a href="#"><i class="glyphicon glyphicon-comment"></i>20 Comments</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
-					</ul>
-			 </div>
-			 <p><?php print $content['articles'][4]['description'] ?></p>
-			 <a href="<?php print $content['articles'][4]['url'] ?>" class="blog-read" >Read More</a>
-		</div>
-		<div class="clearfix"></div>
-	</div>
+			<h4>API Documentation</h4>
+			<b><p>API untuk mengetahui game terlaku oleh mahasiswa Telkom University</p></b>
+      <h5>GET : http ://localhost/ezGames/API_gameTerlaku.php</h5><br>
+      <b><p>API untuk mengetahui siapa saja yang membeli game</p></b>
+      <h5>GET : http: //localhost/ezGames/API_dataUser.php</h5>
+    </div>
+  </div>
 </div>
 </div>
-
-
+  <div class="events-w3layouts">
+  	<h2>Hasil API Game Terlaku</h2>
+  </div>
+  <div class="events-section2-agileinfo">
+  <div class="container">
+    <div id="products" class="row list-group">
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src=<?php print $content['item'][0]['img'] ?> alt="" />
+                <div class="caption">
+                    <h4 style="font-size: 1vw" class="group inner list-group-item-heading">
+                        <?php print $content['item'][0]['name'] ?></h4>
+                    <p class="group inner list-group-item-text">
+                        </p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                               Pembeli : <?php print $content['item'][0]['jumlah']?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src=<?php print $content['item'][1]['img'] ?> alt="" />
+                <div class="caption">
+                    <h4 style="font-size: 1vw" class="group inner list-group-item-heading">
+                        <?php print $content['item'][1]['name'] ?></h4>
+                    <p class="group inner list-group-item-text">
+                        </p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                               Pembeli : <?php print $content['item'][1]['jumlah']?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src=<?php print $content['item'][2]['img'] ?> alt="" />
+                <div class="caption">
+                    <h4 style="font-size: 1vw" class="group inner list-group-item-heading">
+                        <?php print $content['item'][2]['name'] ?></h4>
+                    <p class="group inner list-group-item-text">
+                        </p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                               Pembeli : <?php print $content['item'][2]['jumlah']?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+</div>
+</div>
 <!-- footer -->
 <div class="footer">
 	<div class="container">
